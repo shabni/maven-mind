@@ -85,3 +85,21 @@
     text-align: left;
   }
 }
+
+
+@media (max-width: 992px) {
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  .navbar-collapse {
+    background: #4b4b4b;
+    padding: 10px;
+  }
+  .navbar-nav .nav-item {
+    text-align: left;
+  }
+  .dropdown-menu {
+    width: 100%;
+  }
+}
