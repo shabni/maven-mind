@@ -1,0 +1,68 @@
+<!-- login.component.html -->
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-9 left-side">
+          <div class="text-center logo-center">
+              <img src="assets/images/logo/logo.svg" alt="Logo" width="260">
+              <div class="my-5">
+                  <h1>Welcome to Maven Mind</h1>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-3 right-side">
+          <div class="login-form">
+              <h4 class="text-left mb-5">
+                  <i class="bi bi-lock-fill" style="color: #00b5e9;"></i>
+                  Login
+              </h4>
+
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="mb-4">
+                      <label for="email" class="form-label d-none">Email</label>
+                      <input type="email" id="email" class="form-control input"
+                             formControlName="email" placeholder="Email">
+                      <div *ngIf="f['email'].touched && f['email'].invalid" class="text-danger">
+                          <small *ngIf="f['email'].errors?.['required']">Email is required.</small>
+                          <small *ngIf="f['email'].errors?.['email']">Invalid email format.</small>
+                      </div>
+                  </div>
+
+                  <div class="mb-4">
+                      <label for="password" class="form-label d-none">Password</label>
+                      <input type="password" id="password" class="form-control input"
+                             formControlName="password" placeholder="Password">
+                      <div *ngIf="f['password'].touched && f['password'].invalid" class="text-danger">
+                          <small *ngIf="f['password'].errors?.['required']">Password is required.</small>
+                      </div>
+                  </div>
+
+                  <div class="d-grid mb-5 col-4">
+                      <button type="submit" class="btn btn-sm"
+                              [disabled]="loginForm.invalid"
+                              style="background-color: #00b5e9; color: #ffffff">
+                          Sign In
+                      </button>
+                  </div>
+              </form>
+
+              <div class="text-left col-6">
+                  <a class="text-color" routerLink="/forgot-password">Forgot Password?</a>
+              </div>
+
+              <div class="social-icons mt-5">
+                  <a href="#"><i class="bi bi-facebook" style="color: #00b5e9;"></i></a>
+                  <a href="#"><i class="bi bi-twitter" style="color: #00b5e9;"></i></a>
+                  <a href="#"><i class="bi bi-instagram" style="color: #00b5e9;"></i></a>
+                  <a href="#"><i class="bi bi-linkedin" style="color: #00b5e9;"></i></a>
+              </div>
+
+              <div class="text-links">
+                  <a href="#">Contact Us</a>
+                  <a href="#">About Us</a>
+                  <a href="#">FAQ</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
