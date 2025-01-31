@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PatientListComponent } from './patient-list/patient-list.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: 'list', component: PatientListComponent },
   { path: 'add', component: PatientListComponent },
 ];
