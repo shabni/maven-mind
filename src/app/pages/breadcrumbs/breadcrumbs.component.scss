@@ -1,0 +1,28 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  background: transparent;
+  margin: 0;
+}
+
+.breadcrumb-item {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.2s ease-in-out;
+}
+
+.breadcrumb-item a:hover {
+  color: #00b5e9;
+}
+
+.breadcrumb-item.active {
+  color: #28a745;
+  font-weight: 600;
+}

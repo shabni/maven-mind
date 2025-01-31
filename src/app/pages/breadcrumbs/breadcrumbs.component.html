@@ -1,0 +1,8 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs; let last = last">
+      <a *ngIf="!last" [routerLink]="breadcrumb.url">{{ breadcrumb.label | titlecase }}</a>
+      <span *ngIf="last" class="active">{{ breadcrumb.label | titlecase }}</span>
+    </li>
+  </ol>
+</nav>
