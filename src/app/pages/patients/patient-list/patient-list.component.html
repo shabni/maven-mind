@@ -1,2 +1,21 @@
-patient lsit works
-<!-- <div style="height: 900px; width: 30px; background-color: orange;"></div> -->
+<ngx-datatable
+  class="bootstrap"
+  [rows]="rows"
+  [columns]="[
+    { name: 'Patient ID', prop: 'id' },
+    { name: 'Patient Name', prop: 'name' },
+    { name: 'Patient Email Address', prop: 'email' },
+    { name: 'Preferred Contact Details', prop: 'contact' },
+    { name: 'Status', prop: 'status' },
+    { name: 'Created By', prop: 'createdBy' },
+    { name: 'Created Date', prop: 'createdDate' },
+    { name: 'Updated By', prop: 'updatedBy' },
+    { name: 'Updated Date', prop: 'updatedDate' }
+  ]"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [scrollbarH]="true"
+  [limit]="10">
+</ngx-datatable>
