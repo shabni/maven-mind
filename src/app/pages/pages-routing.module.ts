@@ -3,9 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages.component';
 
 const routes: Routes = [
-  { path: '', component: PagesComponent },
+  {
+    path: '',
+    component: PagesComponent,
+    children: [
+      { path: 'patients', loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule) }
+    ]
+  }
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

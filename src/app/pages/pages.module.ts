@@ -6,6 +6,8 @@ import { PagesComponent } from './pages.component';
 import { LayOutComponent } from './lay-out/lay-out.component';
 import { HeaderComponent } from './lay-out/header/header.component';
 import { SideBarComponent } from './lay-out/side-bar/side-bar.component';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -13,11 +15,13 @@ import { SideBarComponent } from './lay-out/side-bar/side-bar.component';
     PagesComponent,
     LayOutComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    RouterModule
   ]
 })
 export class PagesModule { }
