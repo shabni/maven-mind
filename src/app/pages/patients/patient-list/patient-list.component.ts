@@ -7,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientListComponent implements OnInit {
 
+  columns = [
+    { name: 'Patient ID', prop: 'id' },
+    { name: 'Patient Name', prop: 'name' },
+    { name: 'Patient Email Address', prop: 'email' },
+    { name: 'Preferred Contact Details', prop: 'contact' },
+    { name: 'Status', prop: 'status' },
+    { name: 'Created By', prop: 'createdBy' },
+    { name: 'Created Date', prop: 'createdDate' },
+    { name: 'Updated By', prop: 'updatedBy' },
+    { name: 'Updated Date', prop: 'updatedDate' }
+  ];
+
   rows = [
     { id: 17, name: 'Damon Pickett ajmal', email: 'winafywem@mailinator.com', contact: '+1 (485) 392-4323', status: 'Awaiting compliance approval to move to next stage', createdBy: 'Admin', createdDate: '2024-09-19', updatedBy: 'Admin', updatedDate: '2024-09-19' },
     { id: 16, name: 'Bert Williamson', email: 'gupogo@mailinator.com', contact: '+1 (949) 431-2758', status: 'Awaiting further documentation', createdBy: 'Admin', createdDate: '2024-09-12', updatedBy: 'Admin', updatedDate: '2024-09-17' },
@@ -19,7 +31,6 @@ export class PatientListComponent implements OnInit {
     { id: 9, name: 'Amal', email: 'cyzolivih@mailinator.com', contact: '+1 (121) 416-6864', status: '', createdBy: 'ajmal', createdDate: '2024-08-12', updatedBy: 'Admin', updatedDate: '2024-08-12' },
     { id: 8, name: 'Merritt update', email: 'lakobebyupdate@mailinator.com', contact: '+1 (729) 274-3054', status: '', createdBy: 'Admin', createdDate: '2024-08-09', updatedBy: 'Admin', updatedDate: '2024-08-12' },
   ];
-
   constructor() { }
 
   ngOnInit(): void {
