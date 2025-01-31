@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientListComponent implements OnInit {
 
+  page ={
+    perPage:25,
+    page:1,
+    total:100
+  }
+  perPageOptions = [10, 25, 50, 100];
+
   columns = [
     { name: 'Patient ID', prop: 'id' },
     { name: 'Patient Name', prop: 'name' },
@@ -34,6 +41,18 @@ export class PatientListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setPage(pageInfo: any) {
+    this.page.page = pageInfo.offset + 1;
+  }
+
+  updatePerPage(event: any) {
+    this.page.perPage = event.target.value;
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.page.total / this.page.perPage);
   }
 
 }
