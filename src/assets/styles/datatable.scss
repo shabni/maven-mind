@@ -166,6 +166,13 @@ vertical-align: $align;
 	border-color: $cerulean;
   }
 
+  .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul a,
+  .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled):hover a {
+	color:  $tundora;
+	background: #ffffff;
+	border-color: $cerulean;
+  }
+
   .ngx-datatable .datatable-footer .datatable-pager .pager li a {
 	vertical-align: middle;
   }
