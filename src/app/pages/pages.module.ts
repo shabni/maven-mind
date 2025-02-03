@@ -8,6 +8,7 @@ import { HeaderComponent } from './lay-out/header/header.component';
 import { SideBarComponent } from './lay-out/side-bar/side-bar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    RouterModule
+    RouterModule,
+    NgbModule
   ]
 })
 export class PagesModule { }
