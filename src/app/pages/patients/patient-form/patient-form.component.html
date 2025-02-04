@@ -1,1 +1,336 @@
-<p>patient-form works!</p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card" >
+      <div class="card-header" >
+        <span>Add Patients</span>
+        <span
+          class="position-absolute"
+          style="top: 2px; right: 10px; cursor: pointer; color: white">
+          <i class="fa fa-times" (click)="closeForm()"></i>
+        </span>
+      </div>
+      <div
+        class="card-body">
+
+        <form
+          class="form"
+          autocomplete="off"
+          [formGroup]="studentForm"
+          (ngSubmit)="onSubmit()"
+          novalidate>
+          <div class="row">
+            <span class="text-muted">
+              <em *ngIf="displayValidation">
+                <span class="asterisk">*</span> Indicates required field
+              </em>
+            </span>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="name"
+                  >Name:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="patient_name"
+                  formControlName="name"
+                  alphaOnly />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      studentForm.get('name')?.errors?.['required'] &&
+                      (studentForm.get('name')?.dirty || studentForm.get('name')?.touched)"
+                  >Please enter your first name!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        studentForm.get('name')?.errors?.['maxlength'] &&
+                        studentForm.get('name')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="email"
+                  >Email:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="email"
+                  formControlName="email"
+                  />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      studentForm.get('email')?.errors?.['required'] &&
+                      (studentForm.get('email')?.dirty || studentForm.get('email')?.touched)"
+                  >Please enter your email address!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        studentForm.get('email')?.errors?.['maxlength'] &&
+                        studentForm.get('email')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="nationality"
+                  >Nationality:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="nationality"
+                  id="nationality"
+                   />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    studentForm.get('nationality')?.errors?.['required'] &&
+                    (studentForm.get('nationality')?.dirty || studentForm.get('nationality')?.touched)
+                  "
+                  >Please enter your nationality!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    studentForm.get('nationality')?.errors?.['maxlength'] &&
+                    studentForm.get('nationality')?.dirty
+                  "
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="phone_no"
+                  >Preffered Phone Number:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="phone_no"
+                  formControlName="phone_no"
+                  alphaOnly />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      studentForm.get('phone_no')?.errors?.['required'] &&
+                      (studentForm.get('phone_no')?.dirty || studentForm.get('phone_no')?.touched)"
+                  >Please enter your first phone no!</small
+                >
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="date_of_birth"
+                  >Date of Birth:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                type="date"
+                  class="form-control"
+                  name="date_of_birth"
+                  formControlName="date_of_birth"
+                  />
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="gender" >Gender:<sup *ngIf="displayValidation">*</sup></label>
+                <div class="radio-group">
+                  <input type="radio" id="male" formControlName="gender" value="1" />
+                  <label for="male">Male</label>
+                  <input type="radio" id="female" formControlName="gender" value="2" />
+                  <label for="female">Female</label>
+                </div>
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    studentForm.get('gender')?.errors?.['required'] &&
+                    (studentForm.get('gender')?.dirty || studentForm.get('gender')?.touched)
+                  "
+                  >Please enter your Gender!</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="passport"
+                  >Passport Number:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="passport"
+                  formControlName="passport" />
+
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="phone_no">Status:<sup *ngIf="displayValidation">*</sup></label>
+                <select id="status_id" class="form-control" formControlName="status_id">
+                  <option disabled selected>--Select One--</option>
+                  <option *ngFor="let status of statuses" [value]="status.id">{{ status.name }}</option>
+                </select>
+
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="address"
+                  >Address Line 1:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="address"
+                  formControlName="address"
+                  alphaOnly />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      studentForm.get('address')?.errors?.['required'] &&
+                      (studentForm.get('address')?.dirty || studentForm.get('address')?.touched)"
+                  >Please enter your first name!</small
+                >
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="address2"
+                  >Address Line 2:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="address2"
+                  formControlName="address2"
+                  />
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="city"
+                  >City:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="city"
+                  id="city"
+                   />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    studentForm.get('city')?.errors?.['required'] &&
+                    (studentForm.get('city')?.dirty || studentForm.get('city')?.touched)
+                  "
+                  >Please enter your City!</small>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="country"
+                  >Country:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="country"
+                  formControlName="country"
+                  />
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="post_code"
+                  >Postcode:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="post_code"
+                  formControlName="post_code"
+                  />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      studentForm.get('post_code')?.errors?.['required'] &&
+                      (studentForm.get('post_code')?.dirty || studentForm.get('post_code')?.touched)"
+                  >Please enter your post code address!</small
+                >
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="nationality"
+                  >Nationality:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="nationality"
+                  id="nationality"
+                   />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    studentForm.get('nationality')?.errors?.['required'] &&
+                    (studentForm.get('nationality')?.dirty || studentForm.get('nationality')?.touched)
+                  "
+                  >Please enter your nationality!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    studentForm.get('nationality')?.errors?.['maxlength'] &&
+                    studentForm.get('nationality')?.dirty
+                  "
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="form-buttons gap-2">
+            <button type="submit" class="btn btn-primary" [disabled]="!studentForm.valid">Submit</button>
+            <button type="button" class="btn btn-secondary">Cancel</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
