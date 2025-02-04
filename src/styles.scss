@@ -1,42 +1,41 @@
 
-
 body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  color: #292b2c; /* Dark gray for readability */
-  background-color: #f8f9fa; /* Light gray background */
+  color: #292b2c;
+  background-color: #f8f9fa;
 }
 
-/* Reset Default Spacing */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Ensure Full Height */
+
 html, body {
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
 }
 
-/* Flexbox Layout for Full-Page Apps */
+
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Content Area */
+
 .content {
   flex: 1;
   padding: 20px;
 }
 
-/* Scrollbar Styling (Optional) */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -50,5 +49,115 @@ html, body {
   background-color: #555;
 }
 
+.card {
 
 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+
+}
+
+label{
+  font: 500 0.875rem / 1.0625rem "Poppins", Arial, Helvetica, sans-serif;
+  margin: 0 0 2px;
+  color: #808382;
+  vertical-align: bottom;
+  text-transform: capitalize;
+  letter-spacing: normal;
+  font: 400 .875rem/1.0625rem 'Poppins', Arial, Helvetica, sans-serif;
+
+  sup {
+    color: red;
+    line-height: normal;
+    font-size: 12px;
+    top: 0;
+  }
+
+}
+
+.card-body {
+  flex: 1 1 auto;
+  color: #8f8f8f;
+  border-top: none;
+  padding: 22px 48px 16px 48px;
+}
+
+.card-header {
+  background: #b1b1b1;
+  border-radius: 4px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  font-size: 24px;
+  border-bottom: none;
+}
+
+.text-muted {
+  font-size: 1.05rem;
+}
+
+.asterisk {
+  color: red;
+}
+
+
+.danger{
+  color: #ff586b !important;
+}
+.ng-touched.ng-invalid {
+  border-color: #ff586b;
+}
+
+
+.form-control:disabled, .form-control[readonly], .input-group-addon {
+  background-color: #eceff1;
+}
+
+
+
+.form-control {
+  margin: 0;
+  height: 1.875rem !important;
+  padding: 5px 10px;
+  color: #363535;
+  border-radius: 4px;
+  background-color: #fff;
+  border-color: #acacac;
+  font: 400 0.8125rem / 16px "Poppins", Arial, Helvetica, sans-serif !important;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  .btn {
+    padding: 3px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: #00b5e9;
+    color: white;
+  }
+
+  .btn-secondary {
+    background-color: #05a853;
+    color: white;
+  }
+}
