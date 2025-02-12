@@ -1,0 +1,160 @@
+<div class="profile-block pb-3 mx-2">
+  <div class="row">
+    <div class="profile-header col-12">
+      <div class="image-holder">
+        <img src="assets/images/user.png" />
+      </div>
+      <div class="text-hold">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-between">
+          <h2 class="mt-0 mb-2 mb-lg-0">
+            {{
+              (patientInformation.first_name
+                ? patientInformation.first_name
+                : 'N/A'
+              ) | titlecase
+            }}
+            {{ patientInformation.middle_name | titlecase }}
+            {{ patientInformation.last_name | titlecase }}
+            <small>
+              ( {{ age }} Years |
+              {{
+                patientInformation.date_of_birth | date : 'MM/DD/YYYY'
+              }}
+              | {{ patientGender }} )
+            </small>
+          </h2>
+        </div>
+        <div class="row mt-3 mt-lg-2 padd-lr">
+          <div class="col-12 patient-info-box px-0">
+            <ul class="list-unstyled">
+              <li>
+                <label class="mb-0">Street Address:</label>
+                <span>{{
+                  extractStreetAddress(patientInformation.address) || 'N/A'
+                }}</span>
+                <!-- <span>{{patientInformation.address ? patientInformation.address : 'N/A'}}</span> -->
+              </li>
+              <li>
+                <label class="mb-0">Suite / Floor:</label>
+                <span>{{
+                  patientInformation.suite_no
+                    ? patientInformation.suite_no
+                    : 'N/A'
+                }}</span>
+              </li>
+              <li>
+                <label class="mb-0">SSN:</label>
+                <span>
+                  {{ patientInformation.ssn ? patientInformation.ssn : 'N/A' }}
+                </span>
+              </li>
+              <li>
+                <label class="mb-0">Home Phone No:</label>
+                <span>
+                  <ng-container
+                    *ngIf="
+                      patientInformation.home_phone_no;
+                      else naBlock
+                    ">
+                    {{ patientInformation.home_phone_no }}
+                  </ng-container>
+                </span>
+                <ng-template #naBlock>N/A</ng-template>
+              </li>
+              <li>
+                <label class="mb-0">City:</label>
+                <span>{{
+                  patientInformation.city ? patientInformation.city : 'N/A'
+                }}</span>
+              </li>
+              <li>
+                <label class="mb-0">State:</label>
+                <span>{{
+                  patientInformation.state ? patientInformation.state : 'N/A'
+                }}</span>
+              </li>
+              <li>
+                <label class="mb-0">Zip Code:</label>
+                <span>{{
+                  patientInformation.zip ? patientInformation.zip : 'N/A'
+                }}</span>
+              </li>
+              <li>
+                <label class="mb-0">Cell No:</label>
+                <span>
+                  <ng-container
+                    *ngIf="
+                      patientInformation.cell_phone_no ;
+                      else naBlock
+                    ">
+                    {{ patientInformation.cell_phone_no  }}
+                  </ng-container>
+                </span>
+                <ng-template #naBlock>N/A</ng-template>
+              </li>
+              <li>
+                <label class="mb-0">Work No:</label>
+                <span>
+                  <ng-container
+                    *ngIf="
+                      patientInformation.work_phone_no ;
+                      else naBlock
+                    ">
+                    {{ patientInformation.work_phone_no  }}
+                  </ng-container>
+                </span>
+                <ng-template #naBlock>N/A</ng-template>
+              </li>
+              <li>
+                <label class="mb-0">Extension:</label>
+                <span>{{
+                  patientInformation.phone_extension
+                    ? patientInformation.phone_extension
+                    : 'N/A'
+                }}</span>
+              </li>
+              <li>
+                <label class="mb-0">Email:</label>
+                <span>{{
+                  patientInformation.email ? patientInformation.email : 'N/A'
+                }}</span>
+              </li>
+              <li><label class="mb-0"></label><span></span></li>
+              <li>
+                <label class="mb-0">Emergency Contact No:</label>
+                <span>
+                  <ng-container
+                    *ngIf="
+                      patientInformation.emergency_contact ;
+                      else naBlock
+                    ">
+                    {{ patientInformation.emergency_contact  }}
+                  </ng-container>
+                </span>
+                <ng-template #naBlock>N/A</ng-template>
+              </li>
+
+              <!-- <li class="delivery-address">
+                <label class="mb-0" style="width: 17%;" >
+                  Delivery Address:
+                </label>
+                <span style="width: 83%;">{{getAddress()}}</span>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <button type="button" class="btn btn-secondary">+ Add new case</button>
+    </div>
+
+
+
+
+  </div>
+
+

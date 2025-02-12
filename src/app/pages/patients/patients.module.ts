@@ -6,6 +6,7 @@ import { PatientRoutingModule } from './patient-routing.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { PatientViewComponent } from './patient-view/patient-view.component';
 
 
 
@@ -13,7 +14,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
   declarations: [
 
     PatientFormComponent,
-    PatientListComponent
+    PatientListComponent,
+    PatientViewComponent
   ],
   imports: [
     CommonModule,
