@@ -1,0 +1,275 @@
+
+.profile-block {
+
+  @mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+  }
+
+  @mixin square($size) {
+    @include size($size, $size);
+  }
+
+  .profile-header {
+    // padding: 0 0 30px;
+    overflow: hidden;
+  }
+
+  .image-holder {
+    float: left;
+    border-radius: 10px;
+    margin-right: 15px;
+    @include size(200px, auto);
+    border: 1px solid #acacac;
+
+
+    img {
+      display: block;
+      border-radius: 10px;
+      @include size(100%, auto);
+    }
+  }
+
+  .txt-info-box {
+    overflow: hidden;
+    padding: 20px 0 0 20px;
+  }
+
+  h1 {
+    margin: 0 0 20px;
+    color: #05a853;
+    text-transform: capitalize;
+    font: 400 1.25rem/30px 'Poppins', Arial, Helvetica, sans-serif;
+
+    strong {
+      font-size: 1.875rem;
+      line-height: 36px;
+      text-transform: initial;
+      font-weight: 500;
+      margin: 0 20px 0 0;
+    }
+  }
+
+  h2 {
+    margin: 0 0 20px;
+    color: #05a853;
+    text-transform: capitalize;
+    font: 500 1.563rem/29px 'Poppins', Arial, Helvetica, sans-serif;
+  }
+
+  .patient-id {
+    float: right;
+    color: #525252;
+    margin: 10px 0 0;
+    text-transform: capitalize;
+    font: 400 1.25rem/14px 'Poppins', Arial, Helvetica, sans-serif;
+  }
+
+  .table {
+
+
+    tr {
+
+
+      td {
+        padding: 11px 9px;
+        color: #4b4b4b;
+        border-color: #acacac;
+        font: 400 1rem/18px 'Poppins', Arial, Helvetica, sans-serif;
+
+        a {
+          color: #4b4b4b;
+        }
+
+        strong {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    overflow: hidden;
+  }
+
+  .box-frame {
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #acacac;
+
+    .icon {
+      // @include square(90px);
+      width: 5.625rem;
+      height: 5.625rem;
+      margin: 0 auto 15px;
+
+      img {
+        display: block;
+        max-width: 100%;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+      }
+    }
+
+    a {
+      display: block;
+      @include square(100%);
+      padding: 0.6rem;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .title {
+    display: block;
+    color: #4b4b4b;
+    border-color: #acacac;
+    font: 400 0.875rem/20px 'Poppins', Arial, Helvetica, sans-serif;
+  }
+}
+
+.profile-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.profile-header {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+.profile-table {
+  width: 100%;
+}
+.profile-table td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+}
+.btn-add-case {
+  margin-top: 10px;
+}
+
+
+.patient-info-box {
+
+  ul {
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    @media only screen and (min-width: 767.98px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (min-width: 1199.98px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media only screen and (min-width: 1399.98px) {
+      grid-template-columns: repeat(4, 1fr);
+      .delivery-address {
+        grid-column: 2/ 5;
+      }
+    }
+    li {
+      label{
+        font-weight: bold;
+        color: #4b4b4b;
+      }
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0.4rem 0.8rem;
+      font-size: 12px;
+      font-weight: 500;
+      color: #4b4b4b;
+      background: #f2f2f2f5;
+      &:nth-child(2),
+      &:nth-child(4),
+      &:nth-child(6),
+      &:nth-child(8),
+      &:nth-child(10),
+      &:nth-child(13),
+      &:nth-child(15) {
+        background: #fff;
+      }
+      &:nth-child(12),
+      &:nth-child(16) {
+        display: none;
+      }
+      @media only screen and (min-width: 767.98px) {
+        &:nth-child(2),
+        &:nth-child(6),
+        &:nth-child(10),
+        &:nth-child(15) {
+          background: #f2f2f2f5;
+        }
+        &:nth-child(3),
+        &:nth-child(7),
+        &:nth-child(11),
+        &:nth-child(13) {
+          background: #fff;
+        }
+      }
+      @media only screen and (min-width: 1199.98px) {
+        &:nth-child(16) {
+          display: unset;
+        }
+        &:nth-child(3),
+        &:nth-child(7),
+        &:nth-child(8),
+        &:nth-child(9),
+        &:nth-child(14),
+        &:nth-child(15),
+        &:nth-child(16) {
+          background: #f2f2f2f5;
+        }
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(10) {
+          background: #fff;
+        }
+      }
+      @media only screen and (min-width: 1399.98px) {
+        &:nth-child(12) {
+          display: unset;
+        }
+        &:nth-child(4),
+        &:nth-child(10),
+        &:nth-child(11) {
+          background: #f2f2f2f5;
+        }
+        &:nth-child(7),
+        &:nth-child(8),
+        &:nth-child(14),
+        &:nth-child(15),
+        &:nth-child(16) {
+          background: #fff;
+        }
+      }
+      @media only screen and (min-width: 1599.98px) {
+        font-size: 12px;
+      }
+      label {
+        width: 55%;
+      }
+      span {
+        width: 45%;
+        font-weight: 400;
+      }
+    }
+  }
+}

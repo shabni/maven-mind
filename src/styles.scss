@@ -151,15 +151,17 @@ input:focus {
     cursor: pointer;
   }
 
-  .btn-primary {
-    background-color: #00b5e9;
-    color: white;
-  }
 
-  .btn-secondary {
-    background-color: #05a853;
-    color: white;
-  }
+}
+.btn-primary {
+  background-color: #00b5e9;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #05a853;
+  color: white;
+  border: none;
 }
 
 .details-list {
