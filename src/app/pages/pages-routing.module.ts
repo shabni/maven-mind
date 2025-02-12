@@ -7,7 +7,8 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
-      { path: 'patients', loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule) }
+      { path: 'patients', loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule) },
+      { path: 'case', loadChildren: () => import('./case/case.module').then(m => m.CaseModule) }
     ]
   }
 ];
