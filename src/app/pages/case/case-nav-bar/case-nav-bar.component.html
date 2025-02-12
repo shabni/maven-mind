@@ -1,1 +1,12 @@
-<p>case-nav-bar works!</p>
+<div class="col-12">
+  <div class="row" id="details-menu">
+      <ul class="list-inline details-list mb-0 mt-1">
+          <li class="list-inline-item" routerLinkActive="active" *ngFor="let link of links" (click)="OnNavigate(link)">
+
+             <a  [routerLink]="[link.value]" style="pointer-events: none;">{{link.label}}</a>
+
+          </li>
+      </ul>
+  </div>
+</div>
+
