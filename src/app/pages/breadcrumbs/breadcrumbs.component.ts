@@ -37,6 +37,16 @@ export class BreadcrumbsComponent implements OnInit {
       }
     }
 
-    console.log(this.breadcrumbs, "=====>>>");
+  }
+
+  formatBreadcrumb(label: string): string {
+    return label
+      .split('/')
+      .map(word => this.toTitleCase(word))
+      .join(' <span style="padding: 0 8px;">/</span> ');
+  }
+
+  toTitleCase(str: string): string {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
   }
 }
