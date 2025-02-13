@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-list',
@@ -62,7 +63,9 @@ export class PatientListComponent implements OnInit {
     { id: 9, name: 'Amal', email: 'cyzolivih@mailinator.com', contact: '+1 (121) 416-6864', status: '', createdBy: 'ajmal', createdDate: '2024-08-12', updatedBy: 'Admin', updatedDate: '2024-08-12' },
     { id: 8, name: 'Merritt update', email: 'lakobebyupdate@mailinator.com', contact: '+1 (729) 274-3054', status: '', createdBy: 'Admin', createdDate: '2024-08-09', updatedBy: 'Admin', updatedDate: '2024-08-12' },
   ];
-  constructor(private fb: FormBuilder,) {
+  constructor(private fb: FormBuilder,
+    private router: Router
+  ) {
     this.buildForm()
   }
 
@@ -116,5 +119,7 @@ export class PatientListComponent implements OnInit {
 
   onResetFilters(){}
 
-
+  onPatientNameClick(patientId:any){
+    this.router.navigateByUrl(`/patients/view/${patientId}`);
+  }
 }

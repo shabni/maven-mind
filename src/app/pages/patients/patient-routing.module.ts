@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: 'list', component: PatientListComponent },
   { path: 'add', component: PatientFormComponent },
-  { path: 'view', component: PatientViewComponent },
+  { path: 'view/:id', component: PatientViewComponent },
 ];
 
 @NgModule({
