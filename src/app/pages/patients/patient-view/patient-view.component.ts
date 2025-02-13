@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-view',
@@ -125,6 +126,8 @@ export class PatientViewComponent {
   // For demonstration in the modal (if needed)
   inputfile: string = '';
 
+  constructor(private router: Router){}
+
   // A simple helper function to extract just the street address from a full address string.
   extractStreetAddress(address: any): string {
     if (!address) {
@@ -197,5 +200,10 @@ export class PatientViewComponent {
   getInfo(infoType: string): void {
     this.patientInfoType = infoType;
     console.log('Displaying info for:', infoType);
+  }
+
+  addNewCase(){
+    let url = '/case/info'
+    this.router.navigateByUrl(url);
   }
 }
