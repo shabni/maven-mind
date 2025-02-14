@@ -9,20 +9,49 @@ import { DocsComponent } from './docs/docs.component';
 import { ReferrerComponent } from './referrer/referrer.component';
 import { PreviousInfoComponent } from './previous-info/previous-info.component';
 import { DependantsComponent } from './dependants/dependants.component';
+import { CaseAddComponent } from './case-add/case-add.component';
+import { CaseEditComponent } from './case-edit/case-edit.component';
 
 const routes: Routes = [
-  { path: '', component: CaseComponent,
+  {
+    path: '',
+    component: CaseComponent,
     children: [
-      { path: 'info', component: CaseInfoComponent },
-      { path: 'patient-info', component: PatientInfoComponent },
-      { path: 'dependants', component: DependantsComponent },
-      { path: 'previous-info', component: PreviousInfoComponent },
-      { path: 'referrer', component: ReferrerComponent },
-      { path: 'docs', component: DocsComponent },
-      { path: 'verifier', component: VerifierComponent },
-      { path: 'view-all', component: ViewAllComponent },
-    ]
-   },
+      {
+        path: '',
+        redirectTo: 'add/info',
+        pathMatch: 'full',
+      },
+      {
+        path: 'add',
+        component: CaseAddComponent,
+        children: [
+          { path: 'info', component: CaseInfoComponent },
+          { path: 'patient-info', component: PatientInfoComponent },
+          { path: 'dependants', component: DependantsComponent },
+          { path: 'previous-info', component: PreviousInfoComponent },
+          { path: 'referrer', component: ReferrerComponent },
+          { path: 'docs', component: DocsComponent },
+          { path: 'verifier', component: VerifierComponent },
+          { path: 'view-all', component: ViewAllComponent },
+        ],
+      },
+      {
+        path: 'edit/:id',
+        component: CaseEditComponent,
+        children: [
+          { path: 'info', component: CaseInfoComponent },
+          { path: 'patient-info', component: PatientInfoComponent },
+          { path: 'dependants', component: DependantsComponent },
+          { path: 'previous-info', component: PreviousInfoComponent },
+          { path: 'referrer', component: ReferrerComponent },
+          { path: 'docs', component: DocsComponent },
+          { path: 'verifier', component: VerifierComponent },
+          { path: 'view-all', component: ViewAllComponent },
+        ],
+      },
+    ],
+  },
 ];
 
 @NgModule({
