@@ -147,7 +147,7 @@
       </div>
     </div>
   </div>
-  <div class="row mt-3">
+  <div class="row mt-3 mb-3">
     <div>
       <button type="button" class="btn btn-secondary" (click)="addNewCase()">+ Add new case</button>
     </div>
@@ -155,3 +155,43 @@
   </div>
 
 
+  <ngx-datatable
+  class="bootstrap custom-table"
+  [rows]="rows"
+  [columns]="columns"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [scrollbarH]="true"
+  [limit]="page.perPage"
+  [count]="page.total"
+  [offset]="page.page - 1"
+  [externalPaging]="true"
+  (page)="setPage($event)"
+>
+
+<ngx-datatable-column
+*ngFor="let col of columns"
+[name]="col.name"
+[prop]="col.prop"
+[sortable]="false"
+>
+<ng-template ngx-datatable-header-template let-column="column">
+  <div class="mgx-header">{{ column.name }}</div>
+</ng-template>
+
+<ng-template ngx-datatable-cell-template let-value="value" let-row="row" let-column="column">
+  <div *ngIf="column.name === 'Patient Id'; else normalCell" class="clickable-text"
+  (click)="onEditCaseClick(row.patientId)">
+
+      {{ value }}
+  </div>
+  <ng-template #normalCell>
+    <div class="text-center">{{ value }}</div>
+  </ng-template>
+</ng-template>
+
+</ngx-datatable-column>
+
+</ngx-datatable>

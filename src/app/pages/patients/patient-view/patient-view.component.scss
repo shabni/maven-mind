@@ -136,6 +136,13 @@
   }
 }
 
+.clickable-text {
+  color: #2e7d32;
+  cursor: pointer;
+  text-align: center;
+  // text-decoration: underline;
+}
+
 .profile-container {
   display: flex;
   align-items: flex-start;
