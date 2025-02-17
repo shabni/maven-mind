@@ -161,6 +161,10 @@ export class AgentListComponent implements OnInit {
   onResetFilters(){}
 
   onAgentNameClick(agentId:any){
-    this.router.navigateByUrl(`/agents/view/${agentId}`);
+    this.router.navigateByUrl(`/agents/${agentId}`);
+  }
+
+  addNewAgent(){
+    this.router.navigateByUrl(`/agents/add`);
   }
 }
