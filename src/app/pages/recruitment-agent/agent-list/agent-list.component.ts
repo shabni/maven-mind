@@ -167,4 +167,17 @@ export class AgentListComponent implements OnInit {
   addNewAgent(){
     this.router.navigateByUrl(`/agents/add`);
   }
+
+  editAgent(row: any): void {
+    console.log('Edit Agent:', row);
+    this.router.navigateByUrl(`/agents/edit/${row.id}`);
+    // Implement edit logic (e.g., open a modal, navigate to edit page)
+  }
+
+  deleteAgent(row: any): void {
+    if (confirm('Are you sure you want to delete this agent?')) {
+      console.log('Delete Agent:', row);
+      // Implement delete logic (e.g., call API to remove the agent)
+    }
+  }
 }

@@ -148,4 +148,21 @@
 
   </ngx-datatable-column>
 
+  <ngx-datatable-column name="Action" [width]="150">
+    <ng-template ngx-datatable-header-template>
+      <div class="mgx-header text-center">Action</div>
+    </ng-template>
+
+    <ng-template ngx-datatable-cell-template let-row="row">
+      <div class="d-flex justify-content-center gap-2">
+        <button class="btn btn-sm btn-primary" style="min-width: 60px; padding: 5px 10px;" (click)="editAgent(row)">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-sm btn-danger" style="min-width: 60px; padding: 5px 10px;" (click)="deleteAgent(row)">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </ng-template>
+  </ngx-datatable-column>
+
 </ngx-datatable>

@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
   { path: 'list', component: AgentListComponent },
   { path: 'add', component: AgentFormComponent },
-  { path: 'add/:id', component: AgentFormComponent },
+  { path: 'edit/:id', component: AgentFormComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
