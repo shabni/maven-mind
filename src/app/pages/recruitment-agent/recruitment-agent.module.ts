@@ -5,6 +5,9 @@ import { RecruitmentAgentRoutingModule } from './recruitment-agent-routing.modul
 import { RecruitmentAgentComponent } from './recruitment-agent.component';
 import { AgentListComponent } from './agent-list/agent-list.component';
 import { AgentFormComponent } from './agent-form/agent-form.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import { AgentFormComponent } from './agent-form/agent-form.component';
   ],
   imports: [
     CommonModule,
-    RecruitmentAgentRoutingModule
+    RecruitmentAgentRoutingModule,
+    NgxDatatableModule,
+    ReactiveFormsModule,
+    CollapseModule.forRoot()
   ]
 })
 export class RecruitmentAgentModule { }
