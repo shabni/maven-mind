@@ -8,6 +8,7 @@ import { AgentFormComponent } from './agent-form/agent-form.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     RecruitmentAgentRoutingModule,
     NgxDatatableModule,
     ReactiveFormsModule,
+    NgSelectModule,
     CollapseModule.forRoot()
   ]
 })
