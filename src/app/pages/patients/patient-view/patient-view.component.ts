@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-view',
@@ -6,6 +7,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-view.component.scss']
 })
 export class PatientViewComponent {
+
+  columns = [
+    { name: 'Patient Id', prop: 'patientId' },
+    { name: 'Patient Name', prop: 'patientName' },
+    { name: 'Course Applied For', prop: 'courseApplied' },
+    { name: 'Intake', prop: 'intake' },
+    { name: 'Dependants', prop: 'dependants' },
+    { name: 'Traveling Alone', prop: 'travelingAlone' },
+    { name: 'Recruitment Agent', prop: 'recruitmentAgent' },
+    { name: 'Method Of Contact', prop: 'methodOfContact' },
+    { name: 'Verifier', prop: 'verifier' },
+    { name: 'Created By', prop: 'createdBy' },
+    { name: 'Updated By', prop: 'updatedBy' },
+  ];
+  rows = [
+    {
+      patientId: 17,
+      patientName: 'Damon Pickett ajmal',
+      courseApplied: 'Mphil',
+      intake: 'June',
+      dependants: '👁️',
+      travelingAlone: 'Yes',
+      recruitmentAgent: 'Kathleen Cantrell test update',
+      methodOfContact: 'indirect',
+      verifier: '',
+      createdBy: 'Admin 2024-09-19',
+      updatedBy: 'Admin 2024-09-19',
+    },
+  ];
+
 
   patientInformation = {
     first_name: 'John',
@@ -30,15 +61,17 @@ export class PatientViewComponent {
   age: number = 45;
   patientGender: string = 'Male';
 
+  page ={
+    perPage:25,
+    page:1,
+    total:100
+  }
+
   // Dummy case information (used in the "Case Info" section)
-  rows = [
-    { caseId: 101, description: 'Case 101 description' },
-    { caseId: 102, description: 'Case 102 description' }
-  ];
+
   caseLimit: number = 10;
   caseOffset: number = 0;
   caseaActivePage: number = 1;
-  caseItemsTotal: number = this.rows.length;
 
   // Dummy Employer Info
   employerData = [
@@ -125,6 +158,8 @@ export class PatientViewComponent {
   // For demonstration in the modal (if needed)
   inputfile: string = '';
 
+  constructor(private router: Router){}
+
   // A simple helper function to extract just the street address from a full address string.
   extractStreetAddress(address: any): string {
     if (!address) {
@@ -197,5 +232,20 @@ export class PatientViewComponent {
   getInfo(infoType: string): void {
     this.patientInfoType = infoType;
     console.log('Displaying info for:', infoType);
+  }
+
+  addNewCase(){
+    let url = '/case/add/info'
+    this.router.navigateByUrl(url);
+  }
+
+  onEditCaseClick(id : string){
+    let url = `/case/edit/${id}/info`
+    this.router.navigateByUrl(url);
+  }
+
+
+  setPage(pageInfo: any) {
+    this.page.page = pageInfo.offset + 1;
   }
 }

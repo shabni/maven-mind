@@ -1,8 +1,12 @@
+<div class="d-flex mt-3 mb-3 justify-content-end">
+  <button type="button" class="btn btn-secondary" (click)="addNewStudent()">+ Add new student</button>
+</div>
+
 <form class="form w-100" style="margin: 20px 0px;" [formGroup]="filterForm" (ngSubmit)="onSelectFilters()" autocomplete="off" novalidate>
 
-  <!-- Search Patient Title -->
+  <!-- Search Agent Title -->
   <div class="form-content search-filter-block position-relative ">
-    <strong class="sub-title search-patient-title">Search Patient</strong>
+    <strong class="sub-title search-agent-title">Search Students</strong>
 
     <!-- Toggle Button (Top Right) -->
     <button
@@ -24,29 +28,29 @@
           <div class="row" style="padding-right: 100px;">
             <div class="col-12 col-sm-6 col-md-3">
               <div class="form-group">
-                <label for="patient_id">Patient Id</label>
-                <input type="text" class="form-control" id="patient_id" formControlName="patient_id" />
+                <label for="agent_id">agent Id</label>
+                <input type="text" class="form-control" id="agent_id" formControlName="agent_id" />
               </div>
             </div>
 
             <div class="col-12 col-sm-6 col-md-3">
               <div class="form-group">
-                <label for="patient_id">Name</label>
-                <input type="text" class="form-control" id="patient_id" formControlName="patient_id" />
+                <label for="agent_id">Name</label>
+                <input type="text" class="form-control" id="agent_id" formControlName="agent_id" />
               </div>
             </div>
 
             <div class="col-12 col-sm-6 col-md-3">
               <div class="form-group">
-                <label for="patient_id">Email</label>
-                <input type="text" class="form-control" id="patient_id" formControlName="patient_id" />
+                <label for="agent_id">Email</label>
+                <input type="text" class="form-control" id="agent_id" formControlName="agent_id" />
               </div>
             </div>
 
             <div class="col-12 col-sm-6 col-md-3">
               <div class="form-group">
-                <label for="patient_id">Preffered Contact</label>
-                <input type="text" class="form-control" id="patient_id" formControlName="patient_id" />
+                <label for="agent_id">Preffered Contact</label>
+                <input type="text" class="form-control" id="agent_id" formControlName="agent_id" />
               </div>
             </div>
             <!-- Other input fields here... -->
@@ -137,16 +141,28 @@
     </ng-template>
 
     <ng-template ngx-datatable-cell-template let-value="value" let-row="row" let-column="column">
-      <div *ngIf="column.name === 'Patient Name'; else normalCell" class="clickable-text"
-      (click)="onPatientNameClick(row.id)">
 
-          {{ value }}
-      </div>
-      <ng-template #normalCell>
         <div class="text-center">{{ value }}</div>
-      </ng-template>
+
     </ng-template>
 
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Action" [width]="150">
+    <ng-template ngx-datatable-header-template>
+      <div class="mgx-header text-center">Action</div>
+    </ng-template>
+
+    <ng-template ngx-datatable-cell-template let-row="row">
+      <div class="d-flex justify-content-center gap-2">
+        <button class="btn btn-sm btn-primary" style="min-width: 60px; padding: 5px 10px;" (click)="editAgent(row)">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-sm btn-danger" style="min-width: 60px; padding: 5px 10px;" (click)="deleteAgent(row)">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </ng-template>
   </ngx-datatable-column>
 
 </ngx-datatable>

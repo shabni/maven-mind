@@ -19,14 +19,16 @@
     float: left;
     border-radius: 10px;
     margin-right: 15px;
-    @include size(200px, auto);
+    // @include size(200px, auto);
+    @include size(198px, 160px);
     border: 1px solid #acacac;
 
 
     img {
       display: block;
       border-radius: 10px;
-      @include size(100%, auto);
+      @include size(196px, 158px);
+      // @include size(100%, auto);
     }
   }
 
@@ -132,6 +134,13 @@
     border-color: #acacac;
     font: 400 0.875rem/20px 'Poppins', Arial, Helvetica, sans-serif;
   }
+}
+
+.clickable-text {
+  color: #2e7d32;
+  cursor: pointer;
+  text-align: center;
+  // text-decoration: underline;
 }
 
 .profile-container {

@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card" >
+      <div class="card-header" >
+        <span>Add Students</span>
+        <span
+          class="position-absolute"
+          style="top: 2px; right: 10px; cursor: pointer; color: white">
+          <i class="fa fa-times" (click)="closeForm()"></i>
+        </span>
+      </div>
+      <div
+        class="card-body">
+
+        <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Name:<sup *ngIf="displayValidation">*</sup></label>
+                <input type="text" class="form-control" formControlName="name" />
+                <small class="form-text text-muted danger" *ngIf="studentForm.get('name')?.errors?.['required'] && (studentForm.get('name')?.touched)">
+                  Please enter the student's name!
+                </small>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Year:<sup *ngIf="displayValidation">*</sup></label>
+                <input type="number" class="form-control" formControlName="year" />
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Month:<sup *ngIf="displayValidation">*</sup></label>
+                <input type="text" class="form-control" formControlName="month" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Date:<sup *ngIf="displayValidation">*</sup></label>
+                <input type="date" class="form-control" formControlName="date" />
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Origin:<sup *ngIf="displayValidation">*</sup></label>
+                <input type="text" class="form-control" formControlName="origin" />
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Location:<sup *ngIf="displayValidation">*</sup></label>
+                <input type="text" class="form-control" formControlName="location" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Agent:<sup *ngIf="displayValidation">*</sup></label>
+                <input type="text" class="form-control" formControlName="agent" />
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </form>
+
+        <div class="form-buttons gap-2">
+          <button type="submit" class="btn btn-primary" [disabled]="!studentForm.valid">Submit</button>
+          <button type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

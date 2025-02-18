@@ -10,7 +10,9 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
       { path: 'patients', loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule) },
-      { path: 'case', loadChildren: () => import('./case/case.module').then(m => m.CaseModule) }
+      { path: 'agents', loadChildren: () => import('./recruitment-agent/recruitment-agent.module').then(m => m.RecruitmentAgentModule) },
+      { path: 'case', loadChildren: () => import('./case/case.module').then(m => m.CaseModule) },
+      { path: 'applications', loadChildren: () => import('./applications/applications.module').then(m => m.ApplicationsModule) }
     ]
   }
 ];

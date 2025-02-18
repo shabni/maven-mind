@@ -12,6 +12,8 @@ import { ReferrerComponent } from './referrer/referrer.component';
 import { DocsComponent } from './docs/docs.component';
 import { VerifierComponent } from './verifier/verifier.component';
 import { ViewAllComponent } from './view-all/view-all.component';
+import { CaseAddComponent } from './case-add/case-add.component';
+import { CaseEditComponent } from './case-edit/case-edit.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ViewAllComponent } from './view-all/view-all.component';
     ReferrerComponent,
     DocsComponent,
     VerifierComponent,
-    ViewAllComponent
+    ViewAllComponent,
+    CaseAddComponent,
+    CaseEditComponent
   ],
   imports: [
     CommonModule,

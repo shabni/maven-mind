@@ -1,0 +1,352 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card" >
+      <div class="card-header" >
+        <span>Add Agents</span>
+        <span
+          class="position-absolute"
+          style="top: 2px; right: 10px; cursor: pointer; color: white">
+          <i class="fa fa-times" (click)="closeForm()"></i>
+        </span>
+      </div>
+      <div
+        class="card-body">
+
+        <form [formGroup]="agentForm" (ngSubmit)="onSubmit()">
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="firstName"
+                  >First Name:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="firstName"
+                  formControlName="firstName"
+                  alphaOnly />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('firstName')?.errors?.['required'] &&
+                      (agentForm.get('firstName')?.dirty || agentForm.get('firstName')?.touched)"
+                  >Please enter your first name!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('firstName')?.errors?.['maxlength'] &&
+                        agentForm.get('firstName')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="lastName"
+                  >Last Name:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="lastName"
+                  id="lastName"
+                   />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    agentForm.get('lastName')?.errors?.['required'] &&
+                    (agentForm.get('lastName')?.dirty || agentForm.get('lastName')?.touched)
+                  "
+                  >Please enter your last Name!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    agentForm.get('lastName')?.errors?.['maxlength'] &&
+                    agentForm.get('lastName')?.dirty
+                  "
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="email"
+                  >Email:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="email"
+                  formControlName="email"
+                  />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('email')?.errors?.['required'] &&
+                      (agentForm.get('email')?.dirty || agentForm.get('email')?.touched)"
+                  >Please enter your email address!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('email')?.errors?.['maxlength'] &&
+                        agentForm.get('email')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="companyName"
+                  >Company Name:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="companyName"
+                  formControlName="companyName"
+                  alphaOnly />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('companyName')?.errors?.['required'] &&
+                      (agentForm.get('companyName')?.dirty || agentForm.get('companyName')?.touched)"
+                  >Please enter your company Name!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('companyName')?.errors?.['maxlength'] &&
+                        agentForm.get('companyName')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="contactNumber"
+                  >Contact Number:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="contactNumber"
+                  formControlName="contactNumber"
+                  />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('contactNumber')?.errors?.['required'] &&
+                      (agentForm.get('contactNumber')?.dirty || agentForm.get('contactNumber')?.touched)"
+                  >Please enter your contactNumber!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('contactNumber')?.errors?.['maxlength'] &&
+                        agentForm.get('contactNumber')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="vatRegistrationNumber"
+                  >VAT Registration Number:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="vatRegistrationNumber"
+                  id="vatRegistrationNumber"
+                   />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    agentForm.get('vatRegistrationNumber')?.errors?.['required'] &&
+                    (agentForm.get('vatRegistrationNumber')?.dirty || agentForm.get('vatRegistrationNumber')?.touched)
+                  "
+                  >Please enter your VAT Registration Number!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    agentForm.get('vatRegistrationNumber')?.errors?.['maxlength'] &&
+                    agentForm.get('vatRegistrationNumber')?.dirty
+                  "
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="ukAddress"
+                  >UK Address:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="ukAddress"
+                  formControlName="ukAddress"
+                  alphaOnly />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('ukAddress')?.errors?.['required'] &&
+                      (agentForm.get('ukAddress')?.dirty || agentForm.get('ukAddress')?.touched)"
+                  >Please enter your first UK Address!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('ukAddress')?.errors?.['maxlength'] &&
+                        agentForm.get('ukAddress')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="nonUkAddress"
+                  >Non Uk Company Address:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="nonUkAddress"
+                  formControlName="nonUkAddress"
+                  />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('nonUkAddress')?.errors?.['required'] &&
+                      (agentForm.get('nonUkAddress')?.dirty || agentForm.get('nonUkAddress')?.touched)"
+                  >Please enter your Non Uk Address Company address!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('nonUkAddress')?.errors?.['maxlength'] &&
+                        agentForm.get('nonUkAddress')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="complianceCheck"
+                  >Compliance Check / Refferer:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="complianceCheck"
+                  id="complianceCheck"
+                   />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    agentForm.get('complianceCheck')?.errors?.['required'] &&
+                    (agentForm.get('complianceCheck')?.dirty || agentForm.get('complianceCheck')?.touched)
+                  "
+                  >Please enter your Compliance Check / Refferer!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    agentForm.get('complianceCheck')?.errors?.['maxlength'] &&
+                    agentForm.get('complianceCheck')?.dirty
+                  "
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="restrictedCountries"
+                  >Restricted Countries:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="restrictedCountries"
+                  formControlName="restrictedCountries"
+                  alphaOnly />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('restrictedCountries')?.errors?.['required'] &&
+                      (agentForm.get('restrictedCountries')?.dirty || agentForm.get('restrictedCountries')?.touched)"
+                  >Please enter your first restrictedCountries!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('restrictedCountries')?.errors?.['maxlength'] &&
+                        agentForm.get('restrictedCountries')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="institutionsUK"
+                  >Institutions that you work with in the UK:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <ng-select [items]="ukInstitutions"
+                  bindLabel="name"
+                  bindValue="id"
+                  formControlName="institutionsUK"
+                  placeholder="Select institutions in the UK"
+                  [multiple]="true">
+                </ng-select>
+              </div>
+            </div>
+
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="institutionsOutsideUK"
+                  >Institutions that you work with outside the UK:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <ng-select [items]="outsideUkInstitutions"
+                  bindLabel="name"
+                  bindValue="id"
+                  formControlName="institutionsOutsideUK"
+                  placeholder="Select institutions outside the UK"
+                  [multiple]="true">
+                </ng-select>
+              </div>
+            </div>
+
+          </div>
+
+
+        </form>
+
+        <div class="form-buttons gap-2">
+          <button type="submit" class="btn btn-primary" [disabled]="!agentForm.valid">Submit</button>
+          <button type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
