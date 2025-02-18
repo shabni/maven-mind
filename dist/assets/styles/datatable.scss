@@ -1,0 +1,619 @@
+$white: 			#fff;
+$black: 			#000;
+$alabaste: 			#f8f8f8;
+$tundora: 			#4b4b4b;
+$gray-dark: 		#8f8f8f;
+$mercury:			#e9e8e8;
+$alabaster: 		#f7f7f7;
+$green-haze: 		#05a853;
+$gray: 				#929292;
+$silver-chalice: 	#acacac;
+$mantle:			#979b99;
+$cape-code: 		#292b2a;
+$cerulean: 			#00b5e9;
+$base-px-value: 16px;
+// media qeries variables
+$breakpoints: (
+	'xs-phone': 320px,
+	'phone-min': 576px,
+	'phone': 662px,
+	'tablet': 768px,
+	'desktop': 992px,
+	'desktop-min': 1100px,
+	'desktop-max': 1200px,
+	'widescreen': 1366px,
+	'mid-widescreen': 1440px,
+	'mx-widescreen': 1600px,
+	'xl-widescreen': 1800px
+);
+
+
+// mixins for header
+// font-size convert to rem
+@mixin font-size($pxSize) {
+  font-size: calc($pxSize / $base-px-value) + rem;
+}
+// for widthand height
+@mixin size($width, $height: $width) {
+width: $width;
+height: $height;
+}
+// Drop shadows
+@mixin box-shadow($shadow...) {
+-webkit-box-shadow: $shadow;
+box-shadow: $shadow;
+}
+// alignment
+@mixin align($align: top) {
+display: inline-block;
+vertical-align: $align;
+}
+@mixin placeholder {
+&::-webkit-input-placeholder {@content}
+&::-moz-placeholder {opacity: 1; @content}
+&:-moz-placeholder {@content}
+&:-ms-input-placeholder {@content}
+&.placeholder {@content}
+}
+// Sizing shortcuts
+@mixin square($size) {
+@include size($size, $size);
+}
+.ngx-datatable {
+	&.fixed-header  {
+		.datatable-body {
+			.datatable-scroll {
+				display: block !important;
+				width: auto !important;
+				border-width: 0 0 !important;
+			}
+		}
+	}
+}
+.ngx-datatable {
+	border: 1px solid #d1d4d7;
+
+	&.parent-datatable {
+		.datatable-header {
+			width: 100% !important;
+			.datatable-header-inner {
+				width: 100% !important;
+				.datatable-row-center {
+					width: fit-content !important;
+				}
+			}
+		}
+		.datatable-body {
+			width: 100% !important;
+			.datatable-scroll {
+    			width: fit-content !important;
+				.datatable-row-wrapper {
+					width: 100% !important;
+					.datatable-body-row {
+						width: 100% !important;
+						.datatable-row-center {
+							width: fit-content !important;
+						}
+					}
+					.datatable-row-detail {
+						width: 100% !important;
+						.child-datatable {
+							.ngx-datatable {
+								width: 100% !important;
+								margin-bottom: 0 !important;
+								.datatable-header {
+									width: 100% !important;
+									.datatable-header-inner {
+										width: 100% !important;
+										.datatable-row-center {
+											width: 100% !important;
+										}
+									}
+								}
+								.datatable-body {
+									width: 100% !important;
+									.datatable-scroll {
+										width: 100% !important;
+										.datatable-row-wrapper {
+											width: 100% !important;
+											.datatable-body-row {
+												width: 100% !important;
+												.datatable-row-center {
+													width: 100% !important;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.datatable-body {
+		overflow-y: hidden;
+
+	}
+}
+%text-nowrap {
+	overflow: unset !important;
+	white-space: pre-wrap !important;
+}
+
+.ngx-datatable *, .ngx-datatable *:before, .ngx-datatable *:after {
+	word-break: break-word;
+}
+.ngx-datatable.bootstrap .datatable-footer .datatable-pager a {
+	color: $tundora;
+	background: $white;
+	height: 1.1875rem;
+    min-width: 1.25rem;
+    line-height: 1.25rem;
+	.datatable-icon-prev{
+		font-size: 1rem;
+		line-height: 1.5625rem;
+		padding: 0 .188rem;
+	}
+  }
+
+  .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled).active a,
+  .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled):hover a {
+	color: $white;
+	background: $cerulean;
+	border-color: $cerulean;
+  }
+
+  .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul a,
+  .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled):hover a {
+	color:  $tundora;
+	background: #ffffff;
+	border-color: $cerulean;
+  }
+
+  .ngx-datatable .datatable-footer .datatable-pager .pager li a {
+	vertical-align: middle;
+  }
+
+  .ngx-datatable.bootstrap {
+	font-size: 12px;
+
+  }
+
+  .ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+	white-space: normal !important;
+	text-overflow: inherit !important;
+	text-align: center;
+
+	.fake-input {
+	  border-color: #c0bcbc !important;
+	  background: #fff;
+	}
+  }
+
+  .ngx-datatable .datatable-body-cell,
+  .ngx-datatable .datatable-header-cell {
+	line-height: 0.875rem !important;
+	font-size: 12px !important;
+
+
+  }
+
+  .ngx-datatable.bootstrap .datatable-header .datatable-header-cell .datatable-header-cell-label {
+	white-space: normal !important;
+	line-height: 0.875rem !important;
+  }
+
+  .ngx-datatable .datatable-body .datatable-scroll {
+	display: block !important;
+	border-style: solid;
+	border-width: 0 1px 1px;
+	border-color: #c0c0c0;
+  }
+
+  .ngx-datatable.scroll-vertical .datatable-body {
+	min-height: 35px;
+	border-left: 1px solid #c0c0c0;
+  }
+
+  .ngx-datatable .datatable-header-cell,
+  .ngx-datatable.bootstrap .datatable-header {
+	font-weight: 500;
+  }
+
+  .ngx-datatable.bootstrap .datatable-body .datatable-body-row {
+	padding: 0;
+	border-top: 1px solid #c0c0c0;
+  }
+
+  .ngx-datatable.fixed-row .datatable-scroll .datatable-body-row .datatable-body-cell,
+  .ngx-datatable.bootstrap .datatable-body .datatable-body-row .datatable-body-cell {
+	padding: 0 5px !important;
+	height: 100% !important;
+	min-height: 30px;
+	vertical-align: middle !important;
+	overflow: visible !important;
+	white-space: normal !important;
+	text-overflow: inherit !important;
+	/*word-break: break-all;*/
+	text-align: center;
+  }
+
+  .ngx-datatable.dark .datatable-body .datatable-body-row .datatable-body-cell,
+  ng-reflect-row-height {
+	height: auto !important;
+  }
+
+  .ngx-datatable .empty-row {
+	padding: 15px;
+  }
+
+  .ngx-datatable.bootstrap.docs-card .datatable-body .datatable-body-row .datatable-body-cell,
+  .ngx-datatable.bootstrap.docs-card.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+	text-align: center;
+  }
+
+
+  /*.ngx-datatable.bootstrap.docs-card .datatable-body .datatable-body-row .datatable-body-cell:first-child,
+  .ngx-datatable.bootstrap.docs-card.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell:first-child {
+	  text-align: left;
+  }*/
+
+  .ngx-datatable.bootstrap .datatable-body .datatable-body-row .datatable-body-cell {
+	border-right: 1px solid #c0c0c0;
+	padding: 4px 5px 4px !important;
+  }
+
+  .ngx-datatable.bootstrap .datatable-body .datatable-body-row.datatable-row-even {
+	background: #fff !important;
+	// width: 100%!important;
+  }
+
+//   .ngx-datatable.bootstrap .datatable-body .datatable-body-row.datatable-row-even:hover .datatable-row-center,
+//   .ngx-datatable.bootstrap .datatable-body .datatable-body-row.datatable-row-odd:hover .datatable-row-center {
+// 	background: #f3f0f0 !important;
+//   }
+
+
+
+  .ngx-datatable.bootstrap .datatable-body .datatable-body-row.active.datatable-row-even {
+	background: $white;
+	/*width: 100%!important;*/
+	color: inherit;
+  }
+
+  .ngx-datatable.bootstrap .datatable-body .datatable-body-row.active.datatable-row-odd {
+	color: inherit;
+	background: inherit;
+  }
+
+  .ngx-datatable.bootstrap .datatable-body .datatable-body-row .datatable-body-cell .custom-radio.add-class {
+	margin: 0 auto;
+  }
+
+  .ngx-datatable.bootstrap .datatable-header .datatable-header-cell {
+	border: 0;
+	color: $white;
+	background: $cerulean;
+  }
+
+  .ngx-datatable.bootstrap .datatable-header .datatable-header-cell {
+	min-height: 1.875rem;
+	.sort-btn {
+		position: absolute;
+		right: -14px;
+	}
+  }
+
+  .ngx-datatable.bootstrap .datatable-header .datatable-header-cell div {
+	top: 80%;
+	position: relative;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	text-align: center;
+  }
+
+  .ngx-datatable.bootstrap .datatable-header .datatable-header-cell div.datatable-header-cell-template-wrap {
+	height: auto;
+
+  }
+
+  .ngx-datatable.bootstrap .datatable-header .datatable-header-cell+.datatable-header-cell {
+	border-left: 1px solid $white;
+  }
+
+  .ngx-datatable.bootstrap .datatable-header .datatable-header-cell .select-allCheckbox.action-label {
+	width: 100%;
+  }
+
+  .ngx-datatable.bootstrap .datatable-header .datatable-header-cell .select-allCheckbox.action-label .fake-input {
+	border-color: $white;
+  }
+
+  .ngx-datatable.bootstrap .datatable-header .datatable-header-cell:last-child,
+  .ngx-datatable.bootstrap .datatable-body .datatable-body-row .datatable-body-cell:last-child {
+	text-align: center;
+  }
+
+  .datatable-body-cell-label {
+	z-index: 9999 !important;
+	display: block !important;
+	height: auto !important;
+	position: relative;
+	// top: 50%;
+	// transform: translateY(-50%);
+	// -webkit-transform: translateY(-50%);
+	word-break: break-word;
+  }
+
+  .datatable-body-cell-label {
+
+	.fa.fa-check-circle-o,
+	.fa.fa-circle-o {
+	  font-size: 18px;
+	  color: $green-haze;
+	}
+  }
+
+  .datatable-body-cell-label a,
+  .datatable-body-cell-label .label {
+	display: inline-block !important;
+	vertical-align: middle;
+	white-space: normal;
+	// line-height: 20px;
+  }
+
+  .ngx-datatable .font-medium-3 {
+	margin: 0 3px !important;
+	font-size: 14px;
+	line-height: 0.75rem;
+  }
+
+  .ngx-datatable .font-medium-3:before {
+	font-size: 1rem;
+	line-height: 0.875rem;
+	position: relative;
+  }
+
+  // .ngx-datatable .fa{
+  // 	font-size: 20px !important;
+  // }
+  .ngx-datatable .fa.fa-eye {
+	font-size:1rem !important;
+  }
+
+  .ngx-datatable .custom-select {
+	font-size: 12px;
+
+  }
+
+
+
+.datatable-row-detail {
+	height: auto !important;
+  }
+
+  .ngx-datatable.dark {
+	border: 0;
+	background: none;
+	color: $cape-code;
+	font: 400 12px/14px 'Poppins', Arial, Helvetica, sans-serif;
+
+	.datatable-header {
+	  color: $black;
+	  background: $cerulean;
+	  border-top: 1px solid $silver-chalice;
+	  font: 400 12px/14px 'Poppins', Arial, Helvetica, sans-serif;
+	}
+
+	.datatable-body {
+	  .datatable-body-row {
+		&:hover {
+		  background: $white;
+		}
+
+		&.datatable-row-even {
+		  &:hover {
+			background: $white;
+		  }
+		}
+	  }
+	}
+  }
+
+  .ngx-datatable.fixed-row .datatable-scroll .datatable-body-row {
+	white-space: normal !important;
+	background: $white;
+	/*height: auto!important;*/
+  }
+
+
+  .datatable-checkbox input[type="checkbox"] {
+	z-index: 1;
+	position: static;
+	opacity: 1;
+  }
+
+
+.ngx-datatable{
+	.datatable-footer {
+		overflow: hidden !important;
+		.datatable-footer-inner {
+			height: 1.875rem !important;
+		  }
+	}
+}
+
+.datatable-footer .selected-count .page-count .ng-star-inserted{
+  display: none;
+}
+
+  @media (max-width: 566.98px) {
+
+	.ngx-datatable.bootstrap .datatable-footer .page-count,
+	.ngx-datatable.bootstrap .datatable-footer .datatable-pager,
+	.ngx-datatable .datatable-footer .datatable-footer-inner {
+	  width: auto !important;
+	  display: block !important;
+	  -ms-flex: inherit !important;
+	  flex: inherit !important;
+	  max-width: inherit !important;
+	  height: auto !important;
+	}
+
+	.ngx-datatable.bootstrap .datatable-footer .page-count {
+	  line-height: normal;
+	  text-align: center;
+	  padding: 10px !important;
+	}
+
+	.ngx-datatable .datatable-footer .datatable-footer-inner {
+	  height: auto !important;
+	  padding-bottom: 10px !important;
+	  overflow: hidden;
+	}
+
+	.ngx-datatable.bootstrap .datatable-footer .datatable-pager ul {
+	  display: flex;
+    float: left;
+    justify-content: center;
+	  width: 100%;
+	}
+
+	.ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li {
+	  margin: 0;
+	  line-height: normal;
+	  display: inherit !important;
+	  float: left !important;
+	}
+
+	.ngx-datatable.bootstrap .datatable-footer .datatable-pager a {
+	  width: 1.25rem !important;
+	  height: 1.25rem !important;
+	  min-width: 1.25rem !important;
+	  line-height: 1.25rem !important;
+	  margin: 0 1px !important;
+	  position: relative !important;
+	  display: block !important;
+	}
+
+	.ngx-datatable.bootstrap .datatable-footer .datatable-pager a i {
+	  position: absolute;
+	  line-height: 1.25rem !important;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  -webkit-transform: translate(-50%, -50%);
+
+	  &:before {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+	  }
+	}
+  }
+
+
+
+.ngx-datatable ::-webkit-scrollbar {
+	width: 7px;
+
+  }
+
+  .ngx-datatable ::-webkit-scrollbar:horizontal {
+	height: 10px;
+  }
+
+  /* Track */
+  .ngx-datatable ::-webkit-scrollbar-track {
+	background: #f1f1f1;
+  }
+
+  /* Handle */
+  .ngx-datatable ::-webkit-scrollbar-thumb {
+	background: #acacac;
+	border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  .ngx-datatable ::-webkit-scrollbar-thumb:hover {
+	background: #555;
+  }
+
+  .ngx-datatable ::-moz-scrollbar {
+	width: 7px;
+
+  }
+
+  .ngx-datatable ::-moz-scrollbar:horizontal {
+	height: 10px;
+  }
+
+  /* Track */
+  .ngx-datatable ::-moz-scrollbar-track {
+	background: #f1f1f1;
+  }
+
+  /* Handle */
+  .ngx-datatable ::-moz-scrollbar-thumb {
+	background: #acacac;
+	border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  .ngx-datatable ::-webkit-moz-scrollbar-thumb:hover {
+	background: #555;
+  }
+
+
+.ngx-datatable .datatable-body .datatable-scroll {
+	border-right: 0;
+  }
+  .datatable-body-cell-label a {
+	height: auto !important;
+  }
+
+  .prepare-apeal-mod .form {
+	overflow: hidden;
+  }
+
+
+
+  .ngx-datatable.bootstrap .datatable-footer .page-count {
+	line-height: 51px;
+  }
+
+  .ngx-datatable .datatable-body-row {
+    display: flex !important;
+  }
+
+
+.ngx-datatable.scroll-horz .datatable-body::-webkit-scrollbar {
+	height: 6px;
+  }
+
+  .ngx-datatable.scroll-horz .datatable-body::-webkit-scrollbar-track {
+	background: #f2f2f2;
+	border-radius: 5px;
+  }
+
+  .ngx-datatable.scroll-horz .datatable-body::-webkit-scrollbar-thumb {
+	background: #a9a6a6;
+	border-radius: 5px;
+
+	&:hover {
+	  background: #726e6e;
+	}
+  }
+
+
+  @media only screen and (max-width: 576px) {
+	.ngx-datatable.bootstrap .datatable-footer .page-count {
+	  line-height: 35px !important;
+	  padding: 0px 10px !important;
+	}
+  }
