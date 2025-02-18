@@ -8,12 +8,14 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { StudentsCreateComponent } from './students-create/students-create.component';
 
 
 @NgModule({
   declarations: [
     StudentsComponent,
-    StudentsListComponent
+    StudentsListComponent,
+    StudentsCreateComponent
   ],
   imports: [
     CommonModule,

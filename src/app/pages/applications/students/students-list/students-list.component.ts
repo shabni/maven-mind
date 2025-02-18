@@ -83,7 +83,7 @@ export class StudentsListComponent implements OnInit {
 
   editAgent(row: any): void {
     console.log('Edit Agent:', row);
-    this.router.navigateByUrl(`/agents/edit/${row.id}`);
+    this.router.navigateByUrl(`/applications/students/edit/${row.id}`);
     // Implement edit logic (e.g., open a modal, navigate to edit page)
   }
 
@@ -99,7 +99,7 @@ export class StudentsListComponent implements OnInit {
   }
 
   addNewStudent(){
-
+    this.router.navigateByUrl(`/applications/students/add`);
   }
 
   onResetFilters(){
