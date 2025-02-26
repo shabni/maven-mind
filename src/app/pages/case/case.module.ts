@@ -14,7 +14,8 @@ import { VerifierComponent } from './verifier/verifier.component';
 import { ViewAllComponent } from './view-all/view-all.component';
 import { CaseAddComponent } from './case-add/case-add.component';
 import { CaseEditComponent } from './case-edit/case-edit.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,14 @@ import { CaseEditComponent } from './case-edit/case-edit.component';
     VerifierComponent,
     ViewAllComponent,
     CaseAddComponent,
-    CaseEditComponent
-  ],
+    CaseEditComponent,
+
+    ],
   imports: [
     CommonModule,
-    CaseRoutingModule
+    CaseRoutingModule,
+    ReactiveFormsModule,
+    NgSelectModule
   ]
 })
 export class CaseModule { }

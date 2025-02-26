@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-case-nav-bar',
@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./case-nav-bar.component.scss']
 })
 export class CaseNavBarComponent implements OnInit {
+
+  userId: string | null = '';
 
   links = [
     { value: 'info', label: 'Case',},
@@ -19,16 +21,27 @@ export class CaseNavBarComponent implements OnInit {
     { value: 'view-all', label: 'View All',},
   ]
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.userId = params.get('id');
+      console.log(this.userId);
+    });
   }
 
   OnNavigate(link: any): void {
     // Ensure link.value exists, then navigate
     if (link && link.value !== undefined) {
-      let url = '/case/' + link.value
+      let url = '/case/'
+      if(this.userId){
+        url = url + 'edit/'
+      }else{
+        url = url + 'add/'
+      }
+      url  = url + link.value
       this.router.navigateByUrl(url);
+
     }
   }
 }

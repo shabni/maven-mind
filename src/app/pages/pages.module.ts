@@ -9,7 +9,7 @@ import { SideBarComponent } from './lay-out/side-bar/side-bar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { CaseModule } from './case/case.module';
 
 @NgModule({
   declarations: [
@@ -17,13 +17,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LayOutComponent,
     HeaderComponent,
     SideBarComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    CaseModule
   ]
 })
 export class PagesModule { }

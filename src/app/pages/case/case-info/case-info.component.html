@@ -1,1 +1,71 @@
-<p>case-info works!</p>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card mt-3">
+      <div class="card-header" >
+        <span>Application</span>
+        <span
+          class="position-absolute"
+          style="top: 2px; right: 10px; cursor: pointer; color: white">
+          <i class="fa fa-times" (click)="closeForm()"></i>
+        </span>
+      </div>
+      <div
+        class="card-body">
+        <form [formGroup]="caseForm" (ngSubmit)="onSubmit()">
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="course_ids">
+                  Course Offered:<sup *ngIf="displayValidation">*</sup>
+                </label>
+                <ng-select
+                  [items]="courses"
+                  bindLabel="name"
+                  bindValue="id"
+                  formControlName="course_ids"
+                  placeholder="Select Course"
+                  [multiple]="true">
+                </ng-select>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="session">
+                  Session:<sup *ngIf="displayValidation">*</sup>
+                </label>
+                <ng-select
+                  [items]="courses"
+                  bindLabel="name"
+                  bindValue="id"
+                  formControlName="session"
+                  placeholder="Select Session"
+                  [multiple]="true">
+                </ng-select>
+              </div>
+            </div>
+
+            <div class="col-md-6 mx-auto mt-4">
+              <div class="form-group">
+                <label for="agent_ids">
+                  Agents:<sup *ngIf="displayValidation">*</sup>
+                </label>
+                <ng-select
+                  [items]="courses"
+                  bindLabel="name"
+                  bindValue="id"
+                  formControlName="agent_ids"
+                  placeholder="Select Agents"
+                  [multiple]="true">
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <div class="form-buttons gap-2">
+            <button type="submit" class="btn btn-primary" [disabled]="!caseForm.valid">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
