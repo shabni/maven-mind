@@ -1,1 +1,209 @@
-<p>patient-info works!</p>
+<div class="row">
+    <div class="col-sm-12">
+      <div class="card mt-3">
+        <div class="card-header">
+          <span>Student Info</span>
+          <i class="fa fa-times" (click)="closeForm()" style="cursor: pointer; color: white"></i>
+        </div>
+  
+        <div class="card-body">
+          <form [formGroup]="agentForm">
+            <!-- Personal Details -->
+            <div class="row mt-3">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Given Name:<sup *ngIf="displayValidation">*</sup></label>
+                    <input type="text" class="form-control" formControlName="givenName" />
+                    <small class="text-danger" *ngIf="agentForm.get('givenName')?.errors?.['required']">Please enter your given name!</small>
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Surname:<sup *ngIf="displayValidation">*</sup></label>
+                    <input type="text" class="form-control" formControlName="surname" />
+                    <small class="text-danger" *ngIf="agentForm.get('surname')?.errors?.['required']">Please enter your surname!</small>
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Date of Birth:<sup *ngIf="displayValidation">*</sup></label>
+                    <input type="date" class="form-control" formControlName="dob" />
+                    <small class="text-danger" *ngIf="agentForm.get('dob')?.errors?.['required']">Please enter your date of birth!</small>
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Row 2 -->
+              <div class="row mt-3">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Gender:<sup *ngIf="displayValidation">*</sup></label>
+                    <select class="form-control" formControlName="gender">
+                      <option value="" disabled>Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <small class="text-danger" *ngIf="agentForm.get('gender')?.errors?.['required']">Please select your gender!</small>
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Country of Birth:</label>
+                    <input type="text" class="form-control" formControlName="countryOfBirth" />
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Nationality:</label>
+                    <input type="text" class="form-control" formControlName="nationality" />
+                  </div>
+                </div>
+              </div>
+    
+              <!-- Row 3 -->
+              <div class="row mt-3">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Passport Start Date:</label>
+                    <input type="date" class="form-control" formControlName="passportStartDate" />
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Passport Expiry Date:</label>
+                    <input type="date" class="form-control" formControlName="passportExpiryDate" />
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Passport Status:</label>
+                    <select class="form-control" formControlName="passportStatus">
+                      <option value="current">Current passport</option>
+                      <option value="none">No passport</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+  
+            <!-- English Test -->
+            <div class="row mt-4">
+                <h4>English Test</h4>
+                <div class="col-md-12 mt-2">
+                  <label>Did you take an English test for your visa?</label>
+                  <div>
+                    <label><input type="radio" formControlName="englishTest" value="Yes" /> Yes</label>
+                    <label class="ms-3"><input type="radio" formControlName="englishTest" value="No" /> No</label>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Qualification fields (always visible, but disabled if "Yes" is selected) -->
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <label>If No, why?</label>
+                  <div>
+                    <label><input type="radio" formControlName="englishExemptionReason" value="qualification" [disabled]="agentForm.get('englishTest')?.value === 'Yes'" /> Previous qualification</label>
+                    <input type="text" class="form-control mt-2" formControlName="englishQualification" placeholder="Qualification details" [disabled]="agentForm.get('englishTest')?.value === 'Yes'" />
+                    <label><input type="radio" formControlName="englishExemptionReason" value="previousVisa" [disabled]="agentForm.get('englishTest')?.value === 'Yes'" /> Previous visa</label>
+                    <label><input type="radio" formControlName="englishExemptionReason" value="studyProgramme" [disabled]="agentForm.get('englishTest')?.value === 'Yes'" /> US Study programme</label>
+                    <label><input type="radio" formControlName="englishExemptionReason" value="giftedStudent" [disabled]="agentForm.get('englishTest')?.value === 'Yes'" /> Gifted student</label>
+                    <label><input type="radio" formControlName="englishExemptionReason" value="institutionAssessment" [disabled]="agentForm.get('englishTest')?.value === 'Yes'" /> Institution assessment</label>
+                    <label><input type="radio" formControlName="englishExemptionReason" value="other" [disabled]="agentForm.get('englishTest')?.value === 'Yes'" /> Other</label>
+                  </div>
+                </div>
+              </div>
+            <!-- Travel & Education -->
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Last completed course:</label>
+                  <select class="form-control" formControlName="lastCourseCompleted">
+                    <option value="" disabled>Select a course</option>
+                    <option value="High School">High School</option>
+                    <option value="A Level">A Level</option>
+                    <option value="Bachelors Degree">Bachelors Degree</option>
+                    <option value="Masters Degree">Masters Degree</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Year of completion:</label>
+                  <input type="number" class="form-control" formControlName="courseCompletionYear" min="1900" max="2099" />
+                </div>
+              </div>
+            </div>
+  
+            <!-- Dependants -->
+            <div class="row mt-3">
+                <h4>Dependants?</h4>
+                <div class="col-md-6">
+                  <label>Travelling with dependants?</label>
+                  <div>
+                    <label><input type="radio" formControlName="travellingWithDependants" value="Yes" /> Yes</label>
+                    <label class="ms-3"><input type="radio" formControlName="travellingWithDependants" value="No" /> No</label>
+                  </div>
+                </div>
+              
+                <div class="col-md-6">
+                  <label>How many?</label>
+                  <input type="number" class="form-control" formControlName="numberOfDependants" min="1" [disabled]="agentForm.get('travellingWithDependants')?.value !== 'Yes'" />
+                </div>
+              </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                  <label>Upload to add another visa:</label>
+                  <input type="file" formControlName="additionalVisaUpload" />
+                </div>
+              </div>
+              
+              <!-- Course Level Comparison Section -->
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <label>Are you applying for a course that is at a higher, same, or lower level than the last course you studied in the UK?</label>
+                  <div class="form-check mt-2">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" formControlName="courseLevelComparison" value="Higher" />
+                      The course that I am applying for is at a higher level
+                    </label>
+                  </div>
+                  <div class="form-check mt-2">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" formControlName="courseLevelComparison" value="Same" />
+                      The course that I am applying for is at the same level
+                    </label>
+                  </div>
+                  <div class="form-check mt-2">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" formControlName="courseLevelComparison" value="Lower" />
+                      The course that I am applying for is at a lower level
+                    </label>
+                  </div>
+                  <div class="form-check mt-2">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" formControlName="courseLevelComparison" value="NotStudied" />
+                      I have not studied any academic courses in the UK
+                    </label>
+                  </div>
+                </div>
+              </div>
+            <!-- Form Actions -->
+            <div class="form-buttons d-flex justify-content-end gap-2 mt-4">
+              <button type="submit" class="btn btn-primary" [disabled]="!agentForm.valid">Submit</button>
+              <button type="button" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
