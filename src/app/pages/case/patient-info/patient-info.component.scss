@@ -1,0 +1,11 @@
+::ng-deep .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Adjusts space between radio button and text */
+    white-space: nowrap;
+  }
+  
+  ::ng-deep .radio-group {
+    gap: 15px; /* Adjust spacing between each radio option */
+  }
+  

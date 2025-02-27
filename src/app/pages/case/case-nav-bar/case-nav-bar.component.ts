@@ -12,11 +12,11 @@ export class CaseNavBarComponent implements OnInit {
 
   links = [
     { value: 'info', label: 'Case',},
-    { value: 'patient-info', label: 'Patient Info',},
+    { value: 'patient-info', label: 'Student Info',},
+    { value: 'docs', label: 'Docs',},
     { value: 'dependants', label: 'Dependants',},
     { value: 'previous-info', label: 'Previous Info',},
     { value: 'referrer', label: 'Referrer',},
-    { value: 'docs', label: 'Docs',},
     { value: 'verifier', label: 'Verifier',},
     { value: 'view-all', label: 'View All',},
   ]

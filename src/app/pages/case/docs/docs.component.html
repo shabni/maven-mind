@@ -1,1 +1,82 @@
-<p>docs works!</p>
+<div class="tab-pane fade show active" id="pills-docs" role="tabpanel" aria-labelledby="pills-docs-tab">
+    <div class="user pt-4">
+        <div class="row">
+            <!-- Document List Section -->
+            <div class="col-md-6">
+                <div *ngFor="let category of documentCategories">
+                    <div class="doc-div mt-3">
+                        <div class="doc-btn d-flex align-items-center">
+                            <span>{{ category.name }}</span> 
+                            <span class="mx-2">|</span> 
+                            <span>{{ category.documents.length }}</span>
+                            <button class="btn btn-primary btn-collapse ms-auto" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#' + category.id">
+                                +
+                            </button>
+                        </div>
+                        <div class="collapse" [id]="category.id">
+                            <div class="p-2">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="text-center">
+                                            <tr>
+                                                <th>Doc Name</th>
+                                                <th>Created At</th>
+                                                <th>Created By</th>
+                                                <th>Updated By</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-center">
+                                            <tr *ngFor="let doc of category.documents">
+                                                <td>
+                                                    <span data-bs-toggle="tooltip" data-bs-placement="right" [title]="doc.name">
+                                                        {{ doc.name }}
+                                                    </span>
+                                                </td>
+                                                <td>{{ doc.createdAt }}</td>
+                                                <td>{{ doc.createdBy }}</td>
+                                                <td>{{ doc.updatedBy }}</td>
+                                                <td class="d-flex align-items-center">
+                                                    <a href="javascript:void(0);" class="me-2" (click)="previewDocument(doc.file)">
+                                                        <i class="bi bi-eye-fill text-success"></i>
+                                                    </a>
+                                                    <a [href]="doc.file" download>
+                                                        <i class="fa fa-download text-success"></i>
+                                                    </a>
+                                                    <a href="javascript:void(0);" (click)="deleteDocument(category, doc)" data-bs-toggle="tooltip" title="Delete">
+                                                        <i class="bi bi-x-lg text-danger"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr *ngIf="category.documents.length === 0">
+                                                <td colspan="5" class="text-center text-muted">No documents available</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Button -->
+                <div class="form-buttons p-4">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#addDocuments" class="btn btn-lg btn-primary">Upload</button>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="col-md-6">
+                <div class="position-sticky border p-3" style="top: 20px;">
+                    <div class="d-flex justify-content-between align-items-center bg-dark text-white p-2">
+                        <h3 class="mb-0">Preview</h3>
+                        <button type="button" class="btn-close btn-close-white" (click)="previewUrl = ''"></button>
+                    </div>
+                    <div class="mt-2 text-center" *ngIf="previewUrl">
+                        <iframe [src]="previewUrl" frameborder="0" style="width: 100%; height: 600px;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,18 +24,27 @@ export class PatientInfoComponent implements OnInit {
       passportStartDate: [''],
       passportExpiryDate: [''],
       passportStatus: ['current'],
-      englishTest: [''],
+      englishTest: ['', Validators.required],
       englishExemptionReason: [{ value: '', disabled: true }],
       englishQualification: [{ value: '', disabled: true }],
       lastCourseCompleted: [{ value: '', disabled: true }],
       courseCompletionYear: [{ value: '', disabled: true }, [Validators.min(1900), Validators.max(2099)]],
-      travellingWithDependants: [''],
+      travellingWithDependants: ['', Validators.required],
       numberOfDependants: [{ value: null, disabled: true }],
       additionalVisaUpload: [null],
-      courseLevelComparison: ['', Validators.required]
+      courseLevelComparison: ['', Validators.required],
+      dependantFinancialApproval: ['', Validators.required],
+      complianceFlag: [{ value: '', disabled: true }],
+      travelOutsideHomeCountry: ['', Validators.required],
+      travelFrequency: [{ value: '', disabled: true }],
+      ukTravelHistory: ['', Validators.required],
+      ukTravelFrequency: [{ value: '', disabled: true }],
+      previousUkStudy: [''],
+      ukStudentVisa: [{ value: '', disabled: true }],
+      ukStudentVisaUpload: [{ value: null, disabled: true }],
+      ukVisaRefusal: ['']
     });
 
-    // Enable/Disable previous qualification fields based on English test result
     this.agentForm.get('englishTest')?.valueChanges.subscribe((value) => {
       if (value === 'No') {
         this.agentForm.get('englishExemptionReason')?.enable();
@@ -50,12 +59,57 @@ export class PatientInfoComponent implements OnInit {
       }
     });
 
-    // Enable/Disable 'number of dependants' field based on travelling with dependants
+    // Handle Dependants Logic
     this.agentForm.get('travellingWithDependants')?.valueChanges.subscribe((value) => {
       if (value === 'Yes') {
         this.agentForm.get('numberOfDependants')?.enable();
       } else {
         this.agentForm.get('numberOfDependants')?.disable();
+      }
+    });
+
+    // Handle Financial Approval Logic
+    this.agentForm.get('dependantFinancialApproval')?.valueChanges.subscribe((value) => {
+      if (value === 'No') {
+        this.agentForm.get('complianceFlag')?.enable();
+      } else {
+        this.agentForm.get('complianceFlag')?.disable();
+      }
+    });
+
+    // Handle Travel Outside Home Country Logic
+    this.agentForm.get('travelOutsideHomeCountry')?.valueChanges.subscribe((value) => {
+      if (value === 'Yes') {
+        this.agentForm.get('travelFrequency')?.enable();
+      } else {
+        this.agentForm.get('travelFrequency')?.disable();
+      }
+    });
+
+    // Handle UK Travel History Logic
+    this.agentForm.get('ukTravelHistory')?.valueChanges.subscribe((value) => {
+      if (value === 'Yes') {
+        this.agentForm.get('ukTravelFrequency')?.enable();
+      } else {
+        this.agentForm.get('ukTravelFrequency')?.disable();
+      }
+    });
+
+    // Handle Previous UK Study Logic
+    this.agentForm.get('previousUkStudy')?.valueChanges.subscribe((value) => {
+      if (value === 'Yes') {
+        this.agentForm.get('ukStudentVisa')?.enable();
+      } else {
+        this.agentForm.get('ukStudentVisa')?.disable();
+      }
+    });
+
+    // Handle UK Student Visa Upload Logic
+    this.agentForm.get('ukStudentVisa')?.valueChanges.subscribe((value) => {
+      if (value === 'Yes') {
+        this.agentForm.get('ukStudentVisaUpload')?.enable();
+      } else {
+        this.agentForm.get('ukStudentVisaUpload')?.disable();
       }
     });
   }
