@@ -25,12 +25,16 @@
     padding: 0.5rem 1rem;
     border-radius: 1px;
     font-weight: bold;
-    height:30px;
+    height:29px;
     width:28px;
-    font-size:11px
+    font-size:15px
   }
-  
-  
+  btn-close{
+    color:white
+  }
+  btn-close-white{
+    color:white
+  }
   /* Table Styling */
   ngx-datatable {
     border-radius: 8px;
@@ -67,14 +71,14 @@
     padding: 0rem;
     font-size: 12px;
     height:30px;
-    width:710px;
+    width:733px;
     margin-top: -40px
   }
   .preview-container {
     border: 2px solid #6C6C6C; /* Grey border */
     border-radius: 0px; /* Optional: rounded corners */
     height: 200px; /* Adjust height as needed */
-    width: 107%; /* Ensure it takes the full width of its container */
+    width: 110%; /* Ensure it takes the full width of its container */
 }
 
   .p-3 {

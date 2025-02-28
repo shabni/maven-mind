@@ -35,7 +35,23 @@ export class DocsComponent {
       documents: [
         { name: 'Doc A', createdAt: '2024-02-26', createdBy: 'Admin', updatedBy: 'Admin', file: 'assets/sample.pdf' }
       ]
-    }
+    },
+    {
+      id: 'category3',
+      name: 'Category 3',
+      documents: [
+        { name: 'Doc 1', createdAt: '2024-02-28', createdBy: 'Admin', updatedBy: 'Editor', file: 'assets/sample.pdf' },
+        { name: 'Doc 2', createdAt: '2024-02-27', createdBy: 'User', updatedBy: 'Admin', file: 'assets/sample.pdf' }
+      ]
+    },
+    {
+      id: 'category4',
+      name: 'Category 4',
+      documents: [
+        { name: 'Doc 1', createdAt: '2024-02-28', createdBy: 'Admin', updatedBy: 'Editor', file: 'assets/sample.pdf' },
+        { name: 'Doc 2', createdAt: '2024-02-27', createdBy: 'User', updatedBy: 'Admin', file: 'assets/sample.pdf' }
+      ]
+    },
   ];
 
   columns = [
