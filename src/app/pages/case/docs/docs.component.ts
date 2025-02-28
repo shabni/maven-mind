@@ -1,6 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-declare var bootstrap: any;
+import { Component } from '@angular/core';
+
 interface Document {
   name: string;
   createdAt: string;
@@ -20,48 +19,40 @@ interface DocumentCategory {
   templateUrl: './docs.component.html',
   styleUrls: ['./docs.component.scss']
 })
-export class DocsComponent implements AfterViewInit {
-  previewUrl: SafeResourceUrl | null = null;
-
+export class DocsComponent {
   documentCategories: DocumentCategory[] = [
     {
-      id: 'passportDocs',
-      name: 'Passport',
+      id: 'category1',
+      name: 'Category 1',
       documents: [
-        { name: 'passport_doc_1.pdf', createdAt: '2023-10-01', createdBy: 'Admin', updatedBy: 'Admin', file: 'assets/studentFiles/passport_doc_1.pdf' },
-        { name: 'passport_doc_2.pdf', createdAt: '2023-10-02', createdBy: 'Admin', updatedBy: 'Admin', file: 'assets/studentFiles/passport_doc_2.pdf' }
+        { name: 'Doc 1', createdAt: '2024-02-28', createdBy: 'Admin', updatedBy: 'Editor', file: 'assets/sample.pdf' },
+        { name: 'Doc 2', createdAt: '2024-02-27', createdBy: 'User', updatedBy: 'Admin', file: 'assets/sample.pdf' }
       ]
     },
     {
-      id: 'brpDocs',
-      name: 'BRP',
+      id: 'category2',
+      name: 'Category 2',
       documents: [
-        { name: 'brp_doc_1.pdf', createdAt: '2023-10-03', createdBy: 'Admin', updatedBy: 'Admin', file: 'assets/studentFiles/brp_doc_1.pdf' }
-      ]
-    },
-    {
-      id: 'financialDocs',
-      name: 'Financial Statement',
-      documents: [
-        { name: 'financial_statement_1.pdf', createdAt: '2023-10-04', createdBy: 'Admin', updatedBy: 'Admin', file: 'assets/studentFiles/financial_statement_1.pdf' },
-        { name: 'financial_statement_2.pdf', createdAt: '2023-10-05', createdBy: 'Admin', updatedBy: 'Admin', file: 'assets/studentFiles/financial_statement_2.pdf' },
-        { name: 'financial_statement_3.pdf', createdAt: '2023-10-06', createdBy: 'Admin', updatedBy: 'Admin', file: 'assets/studentFiles/financial_statement_3.pdf' }
+        { name: 'Doc A', createdAt: '2024-02-26', createdBy: 'Admin', updatedBy: 'Admin', file: 'assets/sample.pdf' }
       ]
     }
   ];
 
-  constructor(private sanitizer: DomSanitizer) {}
+  columns = [
+    { name: 'Name', prop: 'name' },
+    { name: 'Created At', prop: 'createdAt' },
+    { name: 'Created By', prop: 'createdBy' },
+    { name: 'Updated By', prop: 'updatedBy' },
+    { name: 'Action' }
+  ];
 
-  ngAfterViewInit() {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    tooltipTriggerList.forEach(tooltip => new bootstrap.Tooltip(tooltip));
+  previewUrl: string | null = null;
+
+  previewDocument(file: string): void {
+    this.previewUrl = file;
   }
 
-  previewDocument(file: string) {
-    this.previewUrl = this.sanitizer.bypassSecurityTrustResourceUrl(file);
-  }
-
-  deleteDocument(category: DocumentCategory, doc: Document) {
-    category.documents = category.documents.filter(d => d !== doc);
+  deleteDocument(category: DocumentCategory, document: Document): void {
+    category.documents = category.documents.filter(doc => doc !== document);
   }
 }

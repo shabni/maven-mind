@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { CaseRoutingModule } from './case-routing.module';
 import { CaseComponent } from './case.component';
@@ -37,7 +38,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CommonModule,
     CaseRoutingModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    NgxDatatableModule
   ]
 })
 export class CaseModule { }
