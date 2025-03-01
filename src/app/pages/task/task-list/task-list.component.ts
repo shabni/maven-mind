@@ -38,6 +38,20 @@ export class TaskListComponent implements OnInit {
   isCollapsed = true;
   filterForm!: FormGroup;
 
+  generalTasks = [
+    { label: 'Assigned', count: 1, color: 'blue' },
+    { label: 'Pending', count: 1, color: 'black' },
+    { label: 'Closed', count: 0, color: 'black' },
+    { label: 'Not Closed', count: 1, color: 'red' }
+  ];
+
+  verificationTasks = [
+    { label: 'Assigned', count: 0, color: 'blue' },
+    { label: 'Pending', count: 0, color: 'black' },
+    { label: 'Approved', count: 0, color: 'green' },
+    { label: 'Not Approved', count: 0, color: 'red' },
+    { label: 'Closed', count: 0, color: 'black' }
+  ];
 
   columns = [
     { name: 'Agent ID', prop: 'id' },
