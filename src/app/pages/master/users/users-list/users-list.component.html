@@ -1,0 +1,168 @@
+<div class="d-flex mt-3 mb-3 justify-content-end">
+  <button type="button" class="btn btn-secondary" (click)="addNewAgent()">+ Add new users</button>
+</div>
+
+<form class="form w-100" style="margin: 20px 0px;" [formGroup]="filterForm" (ngSubmit)="onSelectFilters()" autocomplete="off" novalidate>
+
+  <!-- Search Agent Title -->
+  <div class="form-content search-filter-block position-relative ">
+    <strong class="sub-title search-agent-title">Search Users</strong>
+
+    <!-- Toggle Button (Top Right) -->
+    <button
+      class="btn plus-btn position-absolute"
+      style="max-width: 42px; top: 42px; right: 20px; min-width: unset; background-color: #05a853; border: #05a853;"
+      (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed"
+      aria-controls="collapseBasic"
+      [class.btn-dark]="!isCollapsed"
+      [class.btn-primary]="isCollapsed"
+      type="button">
+      <i class="bi bi-plus" *ngIf="isCollapsed"></i>  <!-- Plus icon -->
+      <i class="bi bi-dash" *ngIf="!isCollapsed"></i>  <!-- Minus icon -->
+    </button>
+
+    <div class="row">
+      <div class="field-block w-100">
+        <div class="col-12" style="color: #808382;">
+          <div class="row" style="padding-right: 100px;">
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="form-group">
+                <label for="agent_id">user Id</label>
+                <input type="text" class="form-control" id="agent_id" formControlName="agent_id" />
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="form-group">
+                <label for="agent_id">Name</label>
+                <input type="text" class="form-control" id="agent_id" formControlName="agent_id" />
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="form-group">
+                <label for="agent_id">Email</label>
+                <input type="text" class="form-control" id="agent_id" formControlName="agent_id" />
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="form-group">
+                <label for="agent_id">Preffered Contact</label>
+                <input type="text" class="form-control" id="agent_id" formControlName="agent_id" />
+              </div>
+            </div>
+            <!-- Other input fields here... -->
+          </div>
+
+          <!-- Collapsible Fields with Animation -->
+          <div id="collapseBasic" [@collapseAnimation]="isCollapsed ? 'collapsed' : 'expanded'">
+            <div class="row" style="padding-right: 100px; margin-top: 20px;">
+              <div class="col-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label for="created_by">Created By</label>
+                  <input type="text" class="form-control" id="created_by" formControlName="created_by" />
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label for="created_by">Created By</label>
+                  <input type="text" class="form-control" id="created_by" formControlName="created_by" />
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label for="created_by">Created By</label>
+                  <input type="text" class="form-control" id="created_by" formControlName="created_by" />
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6 col-md-3">
+                <div class="form-group">
+                  <label for="created_by">Created By</label>
+                  <input type="text" class="form-control" id="created_by" formControlName="created_by" />
+                </div>
+              </div>
+              <!-- Other input fields here... -->
+            </div>
+          </div>
+
+          <!-- Filter & Reset Buttons (Centered) -->
+          <div class="d-flex justify-content-center mt-3">
+            <button type="submit" class="btn btn-primary mx-2" style="background-color: #05a853; border: #05a853;">Filter</button>
+            <button type="button" class="btn btn-default mx-2" (click)="onResetFilters()" [disabled]="true">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <div>
+    <label for="perPageSelect" class="me-2">Show</label>
+    <select id="perPageSelect" class="form-select me-2" style="width: auto; display: inline-block;" (change)="updatePerPage($event)">
+      <option *ngFor="let option of perPageOptions" [value]="option" [selected]="option === page.perPage">{{ option }}</option>
+    </select>
+    <label for="perPageSelect" class="me-2">entries</label>
+  </div>
+  <!-- <div>
+    <span>Page {{ page.page }} of {{ getTotalPages() }}</span>
+  </div> -->
+</div>
+<ngx-datatable
+  class="bootstrap custom-table"
+  [rows]="rows"
+  [columns]="columns"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [scrollbarH]="true"
+  [limit]="page.perPage"
+  [count]="page.total"
+  [offset]="page.page - 1"
+  [externalPaging]="true"
+  (page)="setPage($event)"
+>
+
+  <ngx-datatable-column
+    *ngFor="let col of columns"
+    [name]="col.name"
+    [prop]="col.prop"
+    [sortable]="false"
+  >
+    <ng-template ngx-datatable-header-template let-column="column">
+      <div class="mgx-header">{{ column.name }}</div>
+    </ng-template>
+
+    <ng-template ngx-datatable-cell-template let-value="value" let-row="row" let-column="column">
+
+        <div class="text-center">{{ value }}</div>
+
+    </ng-template>
+
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Action" [width]="150">
+    <ng-template ngx-datatable-header-template>
+      <div class="mgx-header text-center">Action</div>
+    </ng-template>
+
+    <ng-template ngx-datatable-cell-template let-row="row">
+      <div class="d-flex justify-content-center gap-2">
+        <button class="btn btn-sm btn-primary" style="min-width: 60px; padding: 5px 10px;" (click)="editAgent(row)">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-sm btn-danger" style="min-width: 60px; padding: 5px 10px;" (click)="deleteAgent(row)">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </ng-template>
+  </ngx-datatable-column>
+
+</ngx-datatable>

@@ -1,0 +1,172 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card" >
+      <div class="card-header" >
+        <span>Add User</span>
+        <span
+          class="position-absolute"
+          style="top: 2px; right: 10px; cursor: pointer; color: white">
+          <i class="fa fa-times" (click)="closeForm()"></i>
+        </span>
+      </div>
+      <div
+        class="card-body">
+
+        <form [formGroup]="agentForm" (ngSubmit)="onSubmit()">
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="firstName"
+                  >Name:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  formControlName="name"
+                  alphaOnly />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('name')?.errors?.['required'] &&
+                      (agentForm.get('name')?.dirty || agentForm.get('name')?.touched)"
+                  >Please enter your name!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('name')?.errors?.['maxlength'] &&
+                        agentForm.get('name')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="lastName"
+                  >Email:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="email"
+                  id="email"
+                   />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    agentForm.get('email')?.errors?.['required'] &&
+                    (agentForm.get('email')?.dirty || agentForm.get('email')?.touched)
+                  "
+                  >Please enter your email!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    agentForm.get('email')?.errors?.['maxlength'] &&
+                    agentForm.get('email')?.dirty
+                  "
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="email"
+                  >Phone Number:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="phoneNumber"
+                  formControlName="phoneNumber"
+                  />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('phoneNumber')?.errors?.['required'] &&
+                      (agentForm.get('phoneNumber')?.dirty || agentForm.get('phoneNumber')?.touched)"
+                  >Please enter your phone nummber!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('phoneNumber')?.errors?.['maxlength'] &&
+                        agentForm.get('phoneNumber')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="password"
+                  >Password:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  formControlName="password"
+                  alphaOnly />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('password')?.errors?.['required'] &&
+                      (agentForm.get('password')?.dirty || agentForm.get('password')?.touched)"
+                  >Please enter password!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('password')?.errors?.['maxlength'] &&
+                        agentForm.get('password')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="confirmPassword"
+                  >Confirm Password:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  name="confirmPassword"
+                  formControlName="confirmPassword"
+                  />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('confirmPassword')?.errors?.['required'] &&
+                      (agentForm.get('confirmPassword')?.dirty || agentForm.get('confirmPassword')?.touched)"
+                  >Please confirm password!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('confirmPassword')?.errors?.['maxlength'] &&
+                        agentForm.get('confirmPassword')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+            </div>
+        </form>
+
+        <div class="form-buttons gap-2">
+          <button type="submit" class="btn btn-primary" [disabled]="!agentForm.valid">Submit</button>
+          <button type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

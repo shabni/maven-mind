@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card" >
+      <div class="card-header" >
+        <span>Add Status</span>
+        <span
+          class="position-absolute"
+          style="top: 2px; right: 10px; cursor: pointer; color: white">
+          <i class="fa fa-times" (click)="closeForm()"></i>
+        </span>
+      </div>
+      <div
+        class="card-body">
+
+        <form [formGroup]="agentForm" (ngSubmit)="onSubmit()">
+
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="firstName"
+                  >Name:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  formControlName="name"
+                  alphaOnly />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                      agentForm.get('name')?.errors?.['required'] &&
+                      (agentForm.get('name')?.dirty || agentForm.get('name')?.touched)"
+                  >Please enter your name!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                        agentForm.get('name')?.errors?.['maxlength'] &&
+                        agentForm.get('name')?.dirty"
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="lastName"
+                  >Description:<sup *ngIf="displayValidation">*</sup></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="description"
+                  id="description"
+                   />
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    agentForm.get('description')?.errors?.['required'] &&
+                    (agentForm.get('description')?.dirty || agentForm.get('description')?.touched)
+                  "
+                  >Please enter your description!</small
+                >
+                <small
+                  class="form-text text-muted danger"
+                  *ngIf="
+                    agentForm.get('description')?.errors?.['maxlength'] &&
+                    agentForm.get('description')?.dirty
+                  "
+                  >Maximum characters should be 25!</small
+                >
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="form-buttons gap-2">
+          <button type="submit" class="btn btn-primary" [disabled]="!agentForm.valid">Submit</button>
+          <button type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

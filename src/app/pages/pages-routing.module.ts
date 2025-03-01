@@ -12,7 +12,13 @@ const routes: Routes = [
       { path: 'patients', loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule) },
       { path: 'agents', loadChildren: () => import('./recruitment-agent/recruitment-agent.module').then(m => m.RecruitmentAgentModule) },
       { path: 'case', loadChildren: () => import('./case/case.module').then(m => m.CaseModule) },
-      { path: 'applications', loadChildren: () => import('./applications/applications.module').then(m => m.ApplicationsModule) }
+      { path: 'users', loadChildren: () => import('./master/users/users.module').then(m => m.UsersModule) },
+      { path: 'courses', loadChildren: () => import('./master/courses/courses.module').then(m => m.CoursesModule) },
+      { path: 'status', loadChildren: () => import('./master/status/status.module').then(m => m.StatusModule) },
+      { path: 'task', loadChildren: () => import('./task/task.module').then(m => m.TaskModule) }
+
+
+
     ]
   }
 ];
