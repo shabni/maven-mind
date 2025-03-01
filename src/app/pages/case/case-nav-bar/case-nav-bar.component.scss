@@ -2,3 +2,12 @@ a {
   text-decoration: none;
   pointer-events: auto; /* or simply remove pointer-events property */
 }
+
+.comment-tab a {
+  background-color: #007bff; /* Blue text for Comment tab */
+  font-weight: bold;
+}
+
+.custom-modal{
+  height: 300px
+}

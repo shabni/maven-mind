@@ -1,0 +1,28 @@
+<h5 class="modal-title">Add Comments</h5>
+<div class="parent-div">
+    <form [formGroup]="commentForm">
+        <!-- Enrolment Officer & Student Info -->
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <div class="form-group mx-4">
+              <label>Name:</label>
+              <input type="text" class="form-control" formControlName="name" />
+            </div>
+          </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-12">
+                <div class="form-group mx-4">
+                  <label>Comment:</label>
+                  <input type="text" class="form-control" formControlName="description" />
+                </div>
+              </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-12 text-end">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-secondary ms-2" (click)="closeForm()">Cancel</button>
+            </div>
+          </div>
+          </form>
+</div>

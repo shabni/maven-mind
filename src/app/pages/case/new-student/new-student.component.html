@@ -1,0 +1,236 @@
+<div class="row">
+    <div class="col-sm-12">
+      <div class="card mt-3">
+        <div class="card-header d-flex justify-content-center">
+          <span>New Student</span>
+          <!-- <i class="fa fa-times" (click)="closeForm()" style="cursor: pointer; color: white"></i> -->
+        </div>
+        <div class="card-body">
+          <form [formGroup]="enrolmentForm">
+            <!-- Enrolment Officer & Student Info -->
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Enrolment Officer Name:</label>
+                  <input type="text" class="form-control" formControlName="enrolmentOfficer" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Student Name:</label>
+                  <input type="text" class="form-control" formControlName="studentName" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Course:</label>
+                  <input type="text" class="form-control" formControlName="course" />
+                </div>
+              </div>
+            </div>
+  
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Intake:</label>
+                  <input type="text" class="form-control" formControlName="intake" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Has Student Arrived:</label>
+                  <select class="form-control" formControlName="hasArrived">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Visa Type:</label>
+                  <input type="text" class="form-control" formControlName="visaType" />
+                </div>
+              </div>
+            </div>
+  
+            <!-- Contact Details -->
+            <h5 class="mt-4">Contact Details</h5>
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Address in the UK:</label>
+                  <input type="text" class="form-control" formControlName="addressUK" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Mobile Number:</label>
+                  <input type="text" class="form-control" formControlName="mobileNumber" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Email:</label>
+                  <input type="email" class="form-control" formControlName="email" />
+                </div>
+              </div>
+            </div>
+  
+            <!-- Arrival Details -->
+            <h5 class="mt-4">Arrival Details</h5>
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Date of Arrival:</label>
+                  <input type="date" class="form-control" formControlName="dateOfArrival" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Evidence of Entry (Upload):</label>
+                  <input type="file" class="form-control" formControlName="evidenceOfEntry" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Passport Seen:</label>
+                  <select class="form-control" formControlName="passportSeen">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+  
+  <!-- Additional Immigration Fields -->
+  <h5 class="mt-4">Immigration Details</h5>
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Vignette Seen and Stamped:</label>
+        <select class="form-control" formControlName="vignetteSeenStamped">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Share Code (Upload):</label>
+        <input type="file" class="form-control" formControlName="shareCode" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Has the student travelled before the start of their vignette:</label>
+        <select class="form-control" formControlName="travelledBeforeVignette">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Compliance referral made:</label>
+        <select class="form-control" formControlName="complianceReferral">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="mt-4">BRP and Immigration Status</h5>
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>BRP Received (Upload):</label>
+        <input type="file" class="form-control" formControlName="brpReceived" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Is BRP correct:</label>
+        <select class="form-control" formControlName="isBrpCorrect">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>BRP Correct (Upload):</label>
+        <input type="file" class="form-control" formControlName="brpCorrectUpload" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Evisa Upload:</label>
+        <input type="file" class="form-control" formControlName="evisaUpload" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Immigration Status Docs (Upload):</label>
+        <input type="file" class="form-control" formControlName="immigrationStatusDocs" />
+      </div>
+    </div>
+</div>
+
+
+
+            <!-- Finance Section -->
+            <h5 class="mt-4">Finance Section</h5>
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Outstanding Fees:</label>
+                  <select class="form-control" formControlName="outstandingFees">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Amount Outstanding:</label>
+                  <input type="number" class="form-control" formControlName="amountOutstanding" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Amount Paid to Full Enrolment:</label>
+                  <input type="number" class="form-control" formControlName="amountPaid" />
+                </div>
+              </div>
+            </div>
+  
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Requires Payment Plan:</label>
+                  <select class="form-control" formControlName="paymentPlan">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row mt-4">
+              <div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-secondary ms-2" (click)="closeForm()">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

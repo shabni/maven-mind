@@ -1,0 +1,114 @@
+/* General Styling */
+.tab-pane {
+    padding: 2rem;
+  }
+  
+  /* Document Category Styling */
+  .doc-div {
+    border-radius: 8px;
+    margin-bottom: 4rem;
+    margin-left: -40px;
+    background-color: #fff;
+  }
+  .doc-btn {
+    padding: 0rem;
+    background-color: #E0E0E0;
+    margin-top:-55px;
+    margin-left:6px;
+    height:28px
+  }
+  
+  .btn-collapse {
+    background-color: #00AEEF;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1px;
+    font-weight: bold;
+    height:29px;
+    width:28px;
+    font-size:15px
+  }
+  btn-close{
+    color:white
+  }
+  btn-close-white{
+    color:white
+  }
+  /* Table Styling */
+  ngx-datatable {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  ngx-datatable .ngx-datatable.bootstrap.custom-table .datatable-header {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  ngx-datatable .ngx-datatable.bootstrap.custom-table .datatable-body-row {
+    background-color: #fff;
+  }
+  
+  ngx-datatable .ngx-datatable.bootstrap.custom-table .datatable-body-row:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .mgx-header {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Preview Section */
+  .position-sticky {
+    border-radius: 8px;
+    // background-color: #f8f9fa;
+  }
+  
+  .preview-header {
+    background-color: #6C6C6C;
+    color: white;
+    padding: 0rem;
+    font-size: 12px;
+    height:30px;
+    width:733px;
+    margin-top: -40px
+  }
+  .preview-container {
+    border: 2px solid #6C6C6C; /* Grey border */
+    border-radius: 0px; /* Optional: rounded corners */
+    height: 200px; /* Adjust height as needed */
+    width: 110%; /* Ensure it takes the full width of its container */
+}
+
+  .p-3 {
+    padding: 0rem !important;
+  }
+  .textstyle{
+    font-size:14px
+  }
+  iframe {
+    border-radius: 8px;
+  }
+  
+  /* Buttons */
+  .form-buttons .btn-primary {
+    background-color: green;
+    border-color: #007bff;
+    padding: 0.25rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .doc-btn {
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+    .form-buttons .btn-primary {
+      font-size: 1rem;
+      padding: 0.5rem 1.5rem;
+    }
+  }
+  

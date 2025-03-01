@@ -1,1 +1,71 @@
-<p>dependants works!</p>
+<div class="tab-pane fade show active" id="pills-docs" role="tabpanel" aria-labelledby="pills-docs-tab">
+    <div class="user pt-4">
+      <div class="row">
+        <!-- Document List Section -->
+        <div class="col-md-6">
+          <div *ngFor="let category of documentCategories">
+            <div class="doc-div mt-3">
+              <div class="doc-btn d-flex align-items-center">
+                <span style="margin-left:9px; font-size:13px" class="doc-category">{{ category.name }}</span>
+                <span class="mx-2">|</span>
+                <span style="margin-left:9px; font-size:13px" class="doc-count">{{ category.documents.length }}</span>
+                <button class="btn btn-primary btn-collapse ms-auto plus-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#' + category.id">
+                  +
+                </button>
+              </div>
+              <div class="collapse" [id]="category.id">
+                <div class="p-2">
+                  <div class="table-responsive">
+                    <ngx-datatable
+                      class="bootstrap custom-table"
+                      [rows]="category.documents"
+                      [columns]="columns"
+                      [columnMode]="'force'"
+                      [headerHeight]="50"
+                      [footerHeight]="50"
+                      [rowHeight]="'auto'"
+                      [scrollbarH]="true"
+                    >
+                      <ngx-datatable-column name="Name" prop="name" class="mgx-header"></ngx-datatable-column>
+                      <ngx-datatable-column name="Created At" prop="createdAt" class="mgx-header"></ngx-datatable-column>
+                      <ngx-datatable-column name="Created By" prop="createdBy" class="mgx-header"></ngx-datatable-column>
+                      <ngx-datatable-column name="Updated By" prop="updatedBy" class="mgx-header"></ngx-datatable-column>
+                      <ngx-datatable-column name="Action" [width]="150" class="mgx-header">
+                        <ng-template ngx-datatable-cell-template let-row="row">
+                          <div class="action-buttons d-flex justify-content-center gap-2">
+                            <button class="btn btn-sm btn-primary" (click)="previewDocument(row.file)">
+                              <i class="bi bi-eye"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger" (click)="deleteDocument(category, row)">
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </div>
+                        </ng-template>
+                      </ngx-datatable-column>
+                    </ngx-datatable>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Upload Button -->
+          <div class="form-buttons p-4">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#addDocuments" class="btn btn-lg btn-primary">Scan Documents</button>
+          </div>
+        </div>
+        <!-- Preview Section -->
+        <div class="col-md-6">
+          <div class="preview-container border p-3 position-sticky">
+            <div class="d-flex justify-content-between align-items-center preview-header text-white p-2">
+              <h3 class="mb-0 textstyle">Preview</h3>
+              <button type="button" class="btn-close btn-close-white" (click)="previewUrl = null"></button>
+            </div>
+            <div class="mt-2 text-center" *ngIf="previewUrl">
+              <iframe [src]="previewUrl" frameborder="0" class="preview-frame"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

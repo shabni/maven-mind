@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { TabViewModule } from 'primeng/tabview';
 
 import { CaseRoutingModule } from './case-routing.module';
 import { CaseComponent } from './case.component';
@@ -17,6 +18,10 @@ import { CaseAddComponent } from './case-add/case-add.component';
 import { CaseEditComponent } from './case-edit/case-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NewStudentComponent } from './new-student/new-student.component';
+import { ReenrollmentComponent } from './reenrollment/reenrollment.component';
+import { CommentsComponent } from './comments/comments.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ViewAllComponent,
     CaseAddComponent,
     CaseEditComponent,
+    NewStudentComponent,
+    ReenrollmentComponent,
+    CommentsComponent,
 
     ],
   imports: [
@@ -39,7 +47,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CaseRoutingModule,
     ReactiveFormsModule,
     NgSelectModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    TabViewModule,
+    NgbModule
   ]
 })
 export class CaseModule { }

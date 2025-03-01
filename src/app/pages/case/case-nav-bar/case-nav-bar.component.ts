@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CommentsComponent } from '../comments/comments.component';
 @Component({
   selector: 'app-case-nav-bar',
   templateUrl: './case-nav-bar.component.html',
@@ -13,15 +14,17 @@ export class CaseNavBarComponent implements OnInit {
   links = [
     { value: 'info', label: 'Case',},
     { value: 'patient-info', label: 'Student Info',},
-    { value: 'docs', label: 'Docs',},
-    { value: 'dependants', label: 'Dependants',},
-    { value: 'previous-info', label: 'Previous Info',},
-    { value: 'referrer', label: 'Referrer',},
-    { value: 'verifier', label: 'Verifier',},
+    { value: 'general-docs', label: 'General Docs',},
+    { value: 'financial-docs', label: 'Financial Docs',},
+    { value: 'creditability-interview', label: 'Creditability Interview',},
+    { value: 'enrollment', label: 'Enrolment',},
+    { value: 'verifier', label: 'UKVI / Compliance',},
+    { value: 'verifier', label: 'Registry',},
     { value: 'view-all', label: 'View All',},
+    { value: 'comments', label: 'Comment',},
   ]
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -30,18 +33,22 @@ export class CaseNavBarComponent implements OnInit {
     });
   }
 
-  OnNavigate(link: any): void {
-    // Ensure link.value exists, then navigate
-    if (link && link.value !== undefined) {
-      let url = '/case/'
-      if(this.userId){
-        url = url + 'edit/'
-      }else{
-        url = url + 'add/'
-      }
-      url  = url + link.value
-      this.router.navigateByUrl(url);
+  OnNavigate(link: any, event: MouseEvent): void {
+  event.preventDefault();
+  if (link.value === 'comments') {
+    this.openCommentsModal();
+  } else {
+    const baseUrl = this.userId ? '/case/edit/' : '/case/add/';
+    this.router.navigateByUrl(baseUrl + link.value);
+  }
+}
 
-    }
+  openCommentsModal(): void {
+    this.modalService.open(CommentsComponent, {
+      size: 'lg',
+      centered: true,
+      backdrop: 'static',
+      windowClass: 'custom-modal'
+    });
   }
 }

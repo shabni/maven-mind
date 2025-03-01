@@ -31,7 +31,10 @@
     "bootstrap-icons": "^1.11.3",
     "ngx-bootstrap": "9.0.0",
     "ngx-perfect-scrollbar": "^10.1.1",
+    "ngx-tabset": "^2.2.0",
     "popper": "^1.0.1",
+    "primeicons": "^7.0.0",
+    "primeng": "^14.2.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

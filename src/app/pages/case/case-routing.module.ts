@@ -11,6 +11,7 @@ import { PreviousInfoComponent } from './previous-info/previous-info.component';
 import { DependantsComponent } from './dependants/dependants.component';
 import { CaseAddComponent } from './case-add/case-add.component';
 import { CaseEditComponent } from './case-edit/case-edit.component';
+import { CommentsComponent } from './comments/comments.component';
 
 const routes: Routes = [
   {
@@ -28,12 +29,14 @@ const routes: Routes = [
         children: [
           { path: 'info', component: CaseInfoComponent },
           { path: 'patient-info', component: PatientInfoComponent },
-          { path: 'dependants', component: DependantsComponent },
-          { path: 'previous-info', component: PreviousInfoComponent },
-          { path: 'referrer', component: ReferrerComponent },
-          { path: 'docs', component: DocsComponent },
+          { path: 'financial-docs', component: DependantsComponent },
+          { path: 'creditability-interview', component: PreviousInfoComponent },
+          { path: 'enrollment', component: ReferrerComponent },
+          { path: 'general-docs', component: DocsComponent },
           { path: 'verifier', component: VerifierComponent },
           { path: 'view-all', component: ViewAllComponent },
+          { path: 'comments', component: CommentsComponent },
+
         ],
       },
       {
@@ -42,10 +45,10 @@ const routes: Routes = [
         children: [
           { path: 'info', component: CaseInfoComponent },
           { path: 'patient-info', component: PatientInfoComponent },
-          { path: 'dependants', component: DependantsComponent },
-          { path: 'previous-info', component: PreviousInfoComponent },
-          { path: 'referrer', component: ReferrerComponent },
-          { path: 'docs', component: DocsComponent },
+          { path: 'financial-docs', component: DependantsComponent },
+          { path: 'creditability-interview', component: PreviousInfoComponent },
+          { path: 'enrollment', component: ReferrerComponent },
+          { path: 'general-docs', component: DocsComponent },
           { path: 'verifier', component: VerifierComponent },
           { path: 'view-all', component: ViewAllComponent },
         ],

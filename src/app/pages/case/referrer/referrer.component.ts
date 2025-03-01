@@ -11,5 +11,10 @@ export class ReferrerComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  activeTab = 0;
+
+  setActiveTab(index: number) {
+    this.activeTab = index;
+  }
 
 }
